@@ -1,49 +1,120 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/69fddada70.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <title>Jammin' with Spotify - Give me your playlist, I will give you your next Jam. </title>
+    <title>Jammin' with Spotify</title>
     <link rel="stylesheet" href="/static/css/style.css">
-    <!-- D3 library -->
-    <script src=""></script>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
 </head>
-<body>
-     <!-- Hamburger Menu Icon -->
-     <div class="hamburger-menu">
-        <i class="fas fa-bars fa-3x"></i>
-    </div>
 
-    <!-- Sidebar -->
-    <div class="Sidebar">
+<body>
+
+    <div class="sidebar">
         <div class="logo">
-            <a href="/static/img/Jammin w Spotify.svg" alt="Logo">
+            <a href="#">
+                <img src="/static/img/Jammin with Spotify logo.png" alt="Jammin' with Spotify Logo">
             </a>
         </div>
 
         <div class="navigation">
             <ul>
-                <li><a href=""><span class="fa fa-home"></span><span>Home</span></a></li>
-                <li><a href=""><span class="fa fa-search"></span><span>Search</span></a></li>
-                <li><a href=""><span class="fa fa-staistics"></span><span>Statistic</span></a></li>
-                <li><a href=""><span class="fa fa-analytics"></span><span>Analytics</span></a></li>
-                <li><a href=""><span class="fa fa-team members"></span><span>Team Members</span></a></li>
+                <li>
+                    <a href="#home">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>Search</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#your-library">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Your Library</span>
+                    </a>
+                </li>
+                <!-- Added Analytics and Team Members -->
+                <li>
+                    <a href="#analytics">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#team-members">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Team Members</span>
+                    </a>
+                </li>
             </ul>
         </div>
+
+        <!-- Additional navigation items for Playlists and Liked Songs -->
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#playlists">
+                        <i class="fa-solid fa-plus-square"></i>
+                        <span>Create Playlist</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#liked-songs">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Liked Songs</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Policies -->
+        <div class="policies">
+            <ul>
+                <li>
+                    <a href="#cookies">Cookies</a>
+                </li>
+                <li>
+                    <a href="#privacy">Privacy</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-container">
+        <!-- Top bar -->
+        <div class="topbar">
+            <!-- Navigation buttons and user authentication links -->
+        </div>
+
+        <!-- Spotify playlists and focus sections -->
+        <!-- Add the sections as per the clone HTML provided -->
+    </div>
+
+    <!-- Preview section -->
+    <div class="preview">
+        <!-- Preview content -->
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/your_kit_code.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
 
     <!-- Home Section starts -->
     <!-- Home Section ends -->
 
-    <!-- Home Statistic starts -->
-    <!-- Home Statistic ends -->
+    <!-- Statistic Section starts -->
+    <!-- Statistic Section ends -->
 
-    <!-- Home Analytics starts -->
-    <!-- Home Analytics ends -->
+    <!-- Analytics Section starts -->
+    <!-- Analytics Section ends -->
 
-    <!-- Home Team Members starts -->
-    <!-- Home Team Members ends -->
-
-    </div>
-</body>
-</html>
+    <!-- Team Members Section starts -->
+    <!-- Team Members Section ends -->
