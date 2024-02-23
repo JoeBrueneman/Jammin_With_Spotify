@@ -1,170 +1,255 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&family=Quicksand:wght@300;400;500;600;700&display=swap');
-
-:root {
-    --spotify-green: #1DB954;
-    --spotify-black: #121212;
-    --sidebar-width: 300px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;600&display=swap');
 
 * {
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --background-dark: #333;
+    --text-color: #333;
+    --button-bg-color: #000001;
+    --button-text-color: #ffffff;
+    --font-family: Montserrat, sans-serif;
 }
 
 body {
-    background-color: var(--spotify-black);
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    overflow-x: hidden;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: var(--white);
 }
 
-.sidebar {
+/* Navigation */
+.navbar {
+    background-color: var(--background-dark);
+    color: var(--white);
+    padding: 20px;
     position: fixed;
-    left: 0;
+    width: 100%;
     top: 0;
-    bottom: 0;
-    width: var(--sidebar-width);
-    background-color: #000;
-    padding: 24px;
-    z-index: 10;
+    z-index: 1000;
 }
 
-.sidebar .logo img {
-    width: 130px;
-    display: block;
-    margin-bottom: 20px;
-}
-
-.sidebar .navigation ul {
-    list-style: none;
-    margin-top: 20px;
-}
-
-.sidebar .navigation ul li {
-    padding: 10px 0px;
-}
-
-.sidebar .navigation ul li a {
-    color: #b3b3b3;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 18px;
+.navbar .container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
-.sidebar .navigation ul li a:hover,
-.sidebar .navigation ul li.active > a {
-    color: white;
+.nav-menu {
+    display: flex;
+    gap: 20px; 
 }
 
-.sidebar .navigation ul li .fa,
-.sidebar .navigation ul li .fas {
-    font-size: 20px;
-    margin-right: 10px;
-}
-
-.sidebar .policies {
-    position: absolute;
-    bottom: 100px;
-    width: calc(var(--sidebar-width) - 48px); /* Adjust width based on padding */
-}
-
-.sidebar .policies ul {
-    list-style: none;
-}
-
-.sidebar .policies ul li {
-    padding-bottom: 5px;
-}
-
-.sidebar .policies ul li a {
-    color: #b3b3b3;
-    font-weight: 500;
+.nav-link {
+    display: inline-block; 
     text-decoration: none;
-    font-size: 10px;
+    color: var(--white); 
+    margin: 0; 
 }
 
-.sidebar .policies ul li a:hover {
-    text-decoration: underline;
+.logo {
+    max-width: 100px; 
 }
 
-.main-container {
-    margin-left: var(--sidebar-width);
+/* Utility Classes */
+.container {
+    max-width: 940px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.topbar {
-    display: flex;
-    justify-content: space-between;
-    background-color: #000;
-    padding: 14px 30px;
+/* Header, Sections and Footer */
+header, section, footer {
+    padding: 60px 0;
 }
 
-.topbar .prev-next-buttons button {
-    background-color: #181818;
-    color: #7a7a7a;
-    border: none;
-    border-radius: 50%;
-    padding: 8px;
-    font-size: 18px;
-    cursor: pointer;
+h1, h2, h3, p {
+    margin-bottom: 20px;
 }
 
-.topbar .navbar {
+/* Landing Page */
+.showcase {
+    width: 100%;
+    height: 93vh;
+    position: relative;
+    background: url('../img/Spotify-on-phone.jpeg') no-repeat center center/cover;
+}
+
+.showcase::after {
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0,0,0,0.6);
+    box-shadow: inset 50px 100px 50px #000000;
+}
+
+.showcase-top {
+    position: relative;
+    z-index: 2;
+    height: 100px;
+    /* background-color: #3d3d3d; */
+}
+
+.showcase-top img {
+    
+    width: 300px;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%,-20%);
+    mix-blend-mode: multiply;
+    
+}
+
+.showcase-top a {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%,-50%);
+}
+
+.showcase-content {
+    position: relative;
+    z-index: 2;
+    margin: auto;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    margin-top: 15rem;  
 }
 
-.topbar .navbar ul {
+.showcase-content h1 {
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 2;
+    margin: 0 0 0.1rem;
+}
+
+.showcase-content p {
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 2;
+    margin: 0 0 2rem;
+}
+
+/* Buttons */
+.button, .button-3 {
+    display: inline-block;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.button:hover, .button-3:hover {
+    background-color: darken(var(--button-bg-color), 10%);
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: #141414;
+    height: 190px;
+    padding: 20px 50px;
+    flex-direction: column;
+}
+
+footer .icons,
+footer .menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+footer .icons li,
+footer .menu li {
     list-style: none;
 }
 
-.topbar .navbar ul li {
+footer .icons li a {
+    font-size: 2em;
+    color: #1ED760;
+    margin: 0 10px;
     display: inline-block;
-    margin: 0px 8px;
+    transition: 0.5s;
 }
 
-.topbar .navbar ul li a {
-    color: #b3b3b3;
+footer .icons li a:hover {
+    transform: translateY(-10px);
+}
+
+footer .menu li a {
+    font-size: 1.2 rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    letter-spacing: 1px;
+    opacity: 0.75;
+    transition: 0.5s;
 }
 
-.topbar .navbar button {
-    background-color: #ffffff;
-    color: #000000;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
+footer .menu li a:hover {
+    opacity: 1;
+}
+footer p {
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    opacity: 0.75;
 }
 
-.topbar .navbar button:hover {
-    background-color: #f2f2f2;
-}
-
-/* ... Additional styles for Spotify playlists ... */
-/* ... Additional responsive styles ... */
-
-/* Media query for responsiveness */
-@media screen and (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
+/* Media Queries */
+@media (max-width: 991px) {
+    .container {
         padding: 20px;
-        position: relative;
-    }
-
-    .main-container {
-        margin-left: 0;
-    }
-
-    .topbar {
-        flex-direction: column;
     }
 }
+
+@media (max-width: 767px) {
+    .nav-menu {
+        flex-direction: column;
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex; 
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+}
+
+

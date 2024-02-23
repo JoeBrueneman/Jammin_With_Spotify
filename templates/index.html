@@ -1,120 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jammin' with Spotify</title>
     <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/69fddada70.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/static/img/logo_transparent-background.png" type="image/x-icon">
 </head>
-
 <body>
-
-    <div class="sidebar">
-        <div class="logo">
-            <a href="#">
-                <img src="/static/img/Jammin with Spotify logo.png" alt="Jammin' with Spotify Logo">
-            </a>
+    <header class="navbar">
+        <div class="container">
+            <img src="/static/img/logo_transparent-background.png" alt="Logo" class="logo">
+            <nav class="nav-menu">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Statistics</a>
+                <a href="#" class="nav-link">Things We Do</a>
+                <a href="#" class="nav-link">How This Works</a>
+                <a href="#" class="nav-link">Let's Get Your Songs!</a>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
+    </header>
+    
+    <main>
+    <!-- Landing Page Section Starts-->
+        <header class="showcase" id="showcase">
+            <div class="showcase-top">
+                <img src="/static/img/logo_transparent-background.png" alt="Spotify">
+            </div>
+            <div class="showcase-content">
+                <h1>Jammin' with Spotify</h1>
+                <p>I got jammed in Spotify and now I'm totally dazzled</p>
+                <a href="#tab-1" class="btn btn-xl">
+                    Let's Get Your Songs!<i class="fas fa-chevron-right btn-icon"></i>
+                </a>
+            </div>
+        </header>
 
-        <div class="navigation">
+    <!-- Landing Page Section Ends-->
+
+    <!-- What We Do Section Starts-->
+        
+        <section class="what-we-do">
+            <h2>This is a website that helps you find your next favorite song.</h2>
+            <p>Curious about how Spotify recommends songs? We show you how.</p>
+        </section>
+
+     <!-- What We Do Section Ends-->
+        
+    <!-- How This Works Section Starts-->
+
+        <section class="how-this-works">
+            <h2>How This Works</h2>
             <ul>
-                <li>
-                    <a href="#home">
-                        <i class="fa-solid fa-house"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#search">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <span>Search</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#your-library">
-                        <i class="fa-solid fa-book-open"></i>
-                        <span>Your Library</span>
-                    </a>
-                </li>
-                <!-- Added Analytics and Team Members -->
-                <li>
-                    <a href="#analytics">
-                        <i class="fa-solid fa-chart-line"></i>
-                        <span>Analytics</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#team-members">
-                        <i class="fa-solid fa-users"></i>
-                        <span>Team Members</span>
-                    </a>
-                </li>
+                <li>Learn 50 million songs from Spotify</li>
+                <li>Create our own database</li>
+                <li>Train our model</li>
+                <li>Analyze your favorite songs</li>
+                <li>Predict your next favorite song</li>
             </ul>
-        </div>
+        </section>
+    
+    <!-- How This Works Section Ends-->
+        
+        <section class="search">
+            <h2>What's your favorite Song?</h2>
+            <form action="/search" method="get">
+                <input type="search" name="query" placeholder="Search…" required>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+    </main>
+    
+<!-- Footer Starts -->
+<footer>
+    <ul class="icons">
+        <li>
+            <a href="#"><i class="fa-solid fa-asterisk"></i></a>
+        </li>
+        <li>
+            <a href="#"><i class="fa-brands fa-sourcetree"></i></a>
+        </li>
+        <li>
+            <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git"><i class="fa-brands fa-github"></i></a>
+        </li>
+        <li>
+            <a href="#"><i class="fa-regular fa-file-powerpoint"></i></a>
+        </li>
+    </ul>
+    <ul class="menu">
+        <li>
+            <a href="#">References</a>
+            <a href="#">Data Source</a>
+            <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git">GitHub</a>
+            <a href="#">Presentation PPT</a>
+        </li>
+    </ul>
+    <p>Created by <i class="fa-solid fa-users-between-lines"></i> Group1 @UC Berkeley Extension_Fall 2023</p>
+</footer>
 
-        <!-- Additional navigation items for Playlists and Liked Songs -->
-        <div class="navigation">
-            <ul>
-                <li>
-                    <a href="#playlists">
-                        <i class="fa-solid fa-plus-square"></i>
-                        <span>Create Playlist</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#liked-songs">
-                        <i class="fa-solid fa-heart"></i>
-                        <span>Liked Songs</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Policies -->
-        <div class="policies">
-            <ul>
-                <li>
-                    <a href="#cookies">Cookies</a>
-                </li>
-                <li>
-                    <a href="#privacy">Privacy</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Main content area -->
-    <div class="main-container">
-        <!-- Top bar -->
-        <div class="topbar">
-            <!-- Navigation buttons and user authentication links -->
-        </div>
-
-        <!-- Spotify playlists and focus sections -->
-        <!-- Add the sections as per the clone HTML provided -->
-    </div>
-
-    <!-- Preview section -->
-    <div class="preview">
-        <!-- Preview content -->
-    </div>
+<!-- Footer Ends -->
+    
     <script src="/static/js/main.js"></script>
-    <script src="https://kit.fontawesome.com/your_kit_code.js" crossorigin="anonymous"></script>
 </body>
-
 </html>
-
-
-    <!-- Home Section starts -->
-    <!-- Home Section ends -->
-
-    <!-- Statistic Section starts -->
-    <!-- Statistic Section ends -->
-
-    <!-- Analytics Section starts -->
-    <!-- Analytics Section ends -->
-
-    <!-- Team Members Section starts -->
-    <!-- Team Members Section ends -->

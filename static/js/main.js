@@ -1,44 +1,82 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Handle click events on sidebar navigation items
-    const navItems = document.querySelectorAll('.sidebar .navigation ul li a');
-    const subMenus = document.querySelectorAll('.sidebar .navigation ul .submenu');
+document.addEventListener('DOMContentLoaded', function() {
+    // Target the hamburger icon
+    const hamburger = document.querySelector('.hamburger-menu');
+    // Target the navigation menu
+    const navMenu = document.querySelector('.nav-menu');
 
-    navItems.forEach(item => {
-        item.addEventListener('click', function(event) {
-            event.preventDefault();
-            const parentLi = item.parentElement;
+// Listen for hamburger menu click
+hamburger.addEventListener('click', () => {
+    console.log("Hamburger clicked");
+    sidebar.classList.toggle('active-navbar');
+});
 
-            // Collapse all submenus when a non-expandable item is clicked
-            if (!parentLi.classList.contains('expandable')) {
-                subMenus.forEach(subMenu => {
-                    subMenu.style.display = 'none';
-                });
-            }
+    // Close the nav-menu when a link is clicked (useful for single-page applications)
+    const navLinks = document.querySelectorAll('.nav-link');
 
-            // Handle expandable items to toggle submenus
-            if (item.nextElementSibling && item.nextElementSibling.classList.contains('submenu')) {
-                const submenu = item.nextElementSibling;
-                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-            }
-
-            // Set active state
-            navItems.forEach(nav => {
-                nav.parentElement.classList.remove('active');
-            });
-            parentLi.classList.add('active');
-            
-            // Load the content related to the clicked item
-            // This is where you would add the content loading logic
-            // loadContent(item.getAttribute('href').substring(1)); // Implement loadContent function based on your needs
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
         });
     });
 
-    // Function to load content based on the section identifier (e.g., "home", "search", etc.)
-    function loadContent(sectionId) {
-        // Example content loading logic (you would expand this to load actual content)
-        console.log('Loading content for section:', sectionId);
-        // Placeholder logic to show how you might load content
-        const contentArea = document.querySelector('.main-container .content-area');
-        contentArea.innerHTML = `<div>Loading content for ${sectionId}...</div>`;
-    }
-});
+    /* Footer */
+footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: #e50914;
+    height: 190px;
+    padding: 20px 50px;
+    flex-direction: column;
+}
+
+footer .icons,
+footer .menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+footer .icons li,
+footer .menu li {
+    list-style: none;
+}
+
+footer .icons li a {
+    font-size: 2em;
+    color: #141414;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+footer .icons li a:hover {
+    transform: translateY(-10px);
+}
+
+footer .menu li a {
+    font-size: 1.2 rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+    opacity: 0.75;
+    transition: 0.5s;
+}
+
+footer .menu li a:hover {
+    opacity: 1;
+}
+footer p {
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    opacity: 0.75;
+}
