@@ -20,47 +20,52 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Floating button and popup interactions
+    // Floating button to show popup
     const recommendationBtn = document.getElementById('teamrecommendationBtn');
     const teamRecommendationPopup = document.getElementById('teamRecommendationPopup');
+        
+    // Close button inside the popup
     const closeBtn = document.querySelector('.close-btn');
-    
-    // Show the popup when the floating button is clicked
-    recommendationBtn.onclick = function() {
+        
+    // Team member buttons
+    const memberButtons = document.querySelectorAll('.teammate-icon');
+        
+    // Contents for each team member
+    const allWrappedContents = document.querySelectorAll('.wrapped-content');
+        
+    // Open popup
+    recommendationBtn.addEventListener('click', function() {
         teamRecommendationPopup.style.display = 'block';
-    };
-    
-    // Hide the popup when the close button is clicked
-    closeBtn.onclick = function() {
+    });
+        
+    // Close popup
+    closeBtn.addEventListener('click', function() {
         teamRecommendationPopup.style.display = 'none';
-    };
-    
-    // Hide the popup when clicking outside of it
-    window.onclick = function(event) {
+    });
+        
+    // Close popup when clicking outside
+    window.addEventListener('click', function(event) {
         if (event.target === teamRecommendationPopup) {
             teamRecommendationPopup.style.display = 'none';
         }
-    };
+    });
+        
+    // Show recommendation content for each member
+    memberButtons.forEach(button => {
+        button.addEventListener('click', function() {
     
-    // Recommendation Table interactions
-    const buttonItems = document.querySelectorAll('.btn-list');
-    const buttonListTables = document.querySelectorAll('.table-list');
+    // Hide all content
+    allWrappedContents.forEach(content => {
+        content.classList.add('hidden');
+        content.classList.remove('show-wrapped');
+    });
     
-    // Function to show the selected table and hide others
-    function selectTable(e) {
-    // First, remove 'show-table' class from all tables to hide them
-    buttonListTables.forEach(item => {
-        item.style.display = 'none'; // Use display:none to hide
-        });
-    
-    // Add 'show-table' class to the clicked member's table to show it
-    const buttonListTable = document.querySelector(`#table-${this.id}`);
-        buttonListTable.style.display = 'block'; // Use display:block to show
-    }
-    
-    // Add click event listener to each team member's button
-    buttonItems.forEach(item => {
-        item.addEventListener('click', selectTable);
+    // Show the clicked member's content
+    const contentId = `recommendations-${this.dataset.member}`;
+    const contentToShow = document.getElementById(contentId);
+    contentToShow.classList.remove('hidden');
+    contentToShow.classList.add('show-wrapped'); // Add class to display the content
+    });
     });
 });
     

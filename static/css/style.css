@@ -141,7 +141,7 @@ body, html {
     padding: 40px;
 } 
 
-/* Statistics section styles */
+/* Things We Do Section Styles */
 .combined-section {
     background-color: #000; 
     padding: 70px 0px;
@@ -416,23 +416,23 @@ footer p {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.4); 
 }
 
 .popup-content {
     background-image: url('../img/TeamRecommendation-bground.png'); 
     background-size: cover;
-    background-position: center center;
-    margin: 15% auto; /* 15% from the top and centered */
+    background-position: top center;
+    margin: 30% auto; 
     padding: 20px 30px;
     padding-top: 250px;
     border: 1px solid #888;
     width: 80%;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center align the content */
+    align-items: center; 
     text-align: center;
-    font-size: 24px; /* Adjusted font size for readability */
+    font-size: 24px; 
 }
 
 .popup-content .text-center {
@@ -498,27 +498,99 @@ footer p {
 .btn-list:hover {
     background-color: #45a049;
 }
-  
-.table-list, .table-list th, .table-list td {
-    border-collapse: collapse;
-    border-width: 50px;
+
+.gia-image-placeholder {
+    width: 200px; 
+    height: 200px; 
+    background-image: url('../img/Gia.png'); 
+    background-size: cover;
+    margin: 70px auto; 
 }
 
-.table-list {
+.julia-image-placeholder {
+    width: 200px; 
+    height: 200px; 
+    background-image: url('../img/Julia.png'); 
+    background-size: cover;
+    margin: 70px auto; 
+}
+
+.christophe-image-placeholder {
+    width: 200px; 
+    height: 200px; 
+    background-image: url('../img/Christophe.png'); 
+    background-size: cover;
+    margin: 70px auto; 
+}
+
+.joe-image-placeholder {
+    width: 200px; 
+    height: 200px; 
+    background-image: url('../img/Joe.png'); 
+    background-size: cover;
+    margin: 70px auto; 
+}
+
+.minh-image-placeholder {
+    width: 200px; 
+    height: 200px; 
+    background-image: url('../img/Minh.png'); 
+    background-size: cover;
+    margin: 70px auto; 
+}
+
+.wrapped-content {
+    background-image: url('../img/wrapped\ background.jpeg');
+    background-size: cover;
+    background-position: top center;
+    margin: auto;
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
     display: none; 
-    width: 100%; 
-    margin-top: 1.5rem; 
-    border-collapse: collapse; 
 }
 
-.table-list th, .table-list td {
-    padding: 8px; 
-    text-align: left; 
+.wrapped-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-.table-list thead th {
-    color: #1DB954; 
-    font-size: 25px;
+.wrapped-left-column,
+.wrapped-right-column {
+    flex-basis: 48%;
+    list-style-type: none;
+}
+
+.wrapped-left-column h3,
+.wrapped-right-column h3 {
+    padding-bottom: 30px;
+}
+
+.wrapped-left-column ul,
+.wrapped-right-column ul {
+    padding-left: 0;
+}
+
+.wrapped-left-column ul li,
+.wrapped-right-column ul li{
+    margin-bottom: 20px;
+    list-style: none;
+    padding-left: 50px;
+    text-align: left;
+}
+
+.wrapped-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* Show the content when it's active */
+.show-wrapped {
+    display: block;
 }
 
 /* Media Queries */
