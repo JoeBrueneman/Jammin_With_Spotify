@@ -21,8 +21,4 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.remove('active');
         }
     });
-
-    // Optional: Smooth scroll for anchor links (requires additional library or custom code)
-    // This part is optional and can be implemented depending on your needs
-    // You might use a small library like 'smooth-scroll' or write your custom smooth scrolling logic
 });
