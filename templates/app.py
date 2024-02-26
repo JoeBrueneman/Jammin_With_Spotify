@@ -4,11 +4,6 @@ import pandas as pd
 
 app = Flask(__name__)
 
-# Establish a database connection
-def connect_db():
-    conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
-    return conn
-
 @app.route('/')
 def index():
     # Serve main page

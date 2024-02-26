@@ -66,7 +66,7 @@
         <section class="how-this-works">
             <h2>How This Works</h2>
             <ul>
-                <li><i class="fa-solid fa-laptop-file"></i>Learn 50 million songs from Spotify</li>
+                <li><i class="fa-solid fa-laptop-file"></i>Learn 1 million playlists & 2.2 million songs from Spotify</li>
                 <li><i class="fa-brands fa-creative-commons-sampling"></i>Create our own database</li>
                 <li><i class="fa-solid fa-robot"></i>Train our model</li>
                 <li><i class="fa-solid fa-arrows-left-right-to-line"></i>Analyze your favorite songs</li>
@@ -119,6 +119,255 @@
 
     </main>
 
+    <!-- Floating Recommendation Button -->
+    <button id="teamrecommendationBtn" class="floating-btn"><i class="fa-solid fa-people-group"></i></button>
+
+    <!-- Recommendation Popup -->
+    <div id="teamRecommendationPopup" class="recommendation-popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <div class="team-recommendations">
+                <div class="text-center">
+                    <p class="text-lg">Our Recommendations</p>
+                </div>
+                <!-- Team Member's Github Icons-->
+                <div class="member-list">
+                    <div class="member">
+                        <i class="fa-brands fa-github-alt icon-christophe"></i><button id="christophe" class="btn-list teammate-icon" data-member="christophe"><span>CHRISTOPHE</span></button>
+                    </div>
+                    <div class="member">
+                        <i class="fa-brands fa-github-alt icon-gia"></i><button id="gia" class="btn-list teammate-icon" data-member="gia"><span>GIA</span></button>
+                    </div>
+                    <div class="member">
+                        <i class="fa-brands fa-github-alt icon-joe"></i><button id="joe" class="btn-list teammate-icon" data-member="joe"><span>JOE</span></button>
+                    </div>
+                    <div class="member">
+                        <i class="fa-brands fa-github-alt icon-julia"></i><button id="julia" class="btn-list teammate-icon" data-member="julia"><span>JULIA</span></button>
+                    </div>
+                    <div class="member">
+                        <i class="fa-brands fa-github-alt icon-minh"></i><button id="minh" class="btn-list teammate-icon" data-member="minh"><span>MINH</span></button>
+                    </div>
+                </div>
+       
+                <!-- Team Member's Recommendations Tables -->
+                <table id="table-christophe" class="table-list show-table">
+                    <caption class="table-title">Christophe's List</caption>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Genre</th>
+                            <th>Category</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lost</td>
+                            <td>Adventure, Drama, Fantasy</td>
+                            <td>Series</td>
+                            <td>8.3</td>
+                        </tr>
+                        <tr>
+                            <td>Space Force</td>
+                            <td>Comedy</td>
+                            <td>Series</td>
+                            <td>6.7</td>
+                        </tr>
+                        <tr>
+                            <td>Star Trek: Voyager</td>
+                            <td>Action, Adventure, Sci-Fi</td>
+                            <td>Series</td>
+                            <td>7.9</td>
+                        </tr>
+                        <tr>
+                            <td>The Hunger Games</td>
+                            <td>Action, Adventure, Sci-Fi</td>
+                            <td>Movie</td>
+                            <td>7.2</td>
+                        </tr>
+                        <tr>
+                            <td>Taken</td>
+                            <td>Action, Crime, Thriller</td>
+                            <td>Movie</td>
+                            <td>7.8</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="table-gia" class="table-list">
+                    <caption class="table-title">Gia's List</caption>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Genre</th>
+                            <th>Category</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dark</td>
+                            <td>Science Fiction</td>
+                            <td>Series</td>
+                            <td>9.0</td>
+                        </tr>
+                        <tr>
+                            <td>The Queen's Gambit</td>
+                            <td>Drama</td>
+                            <td>Series</td>
+                            <td>9.5</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>Science Fiction</td>
+                            <td>Series</td>
+                            <td>8.5</td>
+                        </tr>
+                        <tr>
+                            <td>Stranger Things</td>
+                            <td>Science Fiction</td>
+                            <td>Series</td>
+                            <td>8.7</td>
+                        </tr>
+                        <tr>
+                            <td>Breaking Bad</td>
+                            <td>Crime</td>
+                            <td>Series</td>
+                            <td>8.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="table-joe" class="table-list">
+                    <caption class="table-title">Joe's List</caption>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Genre</th>
+                            <th>Category</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ginny & Georgia</td>
+                            <td>Comedy, Drama</td>
+                            <td>Series</td>
+                            <td>7.5</td>
+                        </tr>
+                        <tr>
+                            <td>Suits</td>
+                            <td>Drama, Comedy</td>
+                            <td>Series</td>
+                            <td>8.4</td>
+                        </tr>
+                        <tr>
+                            <td>The Blacklist</td>
+                            <td>Crime, Drama, Mystery</td>
+                            <td>Series</td>
+                            <td>7.9</td>
+                        </tr>
+                        <tr>
+                            <td>Brooklyn Nine-Nine</td>
+                            <td>Comedy, Crime</td>
+                            <td>Series</td>
+                            <td>8.4</td>
+                        </tr>
+                        <tr>
+                            <td>Hunter x Hunter</td>
+                            <td>Action, Adventure, Animation</td>
+                            <td>Series</td>
+                            <td>9.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="table-julia" class="table-list">
+                    <caption class="table-title">Julia's List</caption>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Genre</th>
+                            <th>Category</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Friends</td>
+                            <td>Comedy, Romance</td>
+                            <td>Series</td>
+                            <td>8.9</td>
+                        </tr>
+                        <tr>
+                            <td>The Queen's Gambit</td>
+                            <td>Drama</td>
+                            <td>Series</td>
+                            <td>9.5</td>
+                        </tr>
+                        <tr>
+                            <td>Stranger Things</td>
+                            <td>Science Fiction</td>
+                            <td>Series</td>
+                            <td>8.5</td>
+                        </tr>
+                        <tr>
+                            <td>Jefferey Dahmer</td>
+                            <td>Science Fiction</td>
+                            <td>Series</td>
+                            <td>8.7</td>
+                        </tr>
+                        <tr>
+                            <td>That 70's Show</td>
+                            <td>Comedy</td>
+                            <td>Series</td>
+                            <td>8.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="table-minh" class="table-list">
+                    <caption class="table-title">Minh's List</caption>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Genre</th>
+                            <th>Category</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>The Breaking Bad</td>
+                            <td>Crime, Drama, Thriller</td>
+                            <td>Series</td>
+                            <td>9.5</td>
+                        </tr>
+                        <tr>
+                            <td>The Good Place</td>
+                            <td>Comedy, Drama, Fantasy</td>
+                            <td>Series</td>
+                            <td>8.2</td>
+                        </tr>
+                        <tr>
+                            <td>Manifest</td>
+                            <td>Drama, Mystery, Sci-Fi</td>
+                            <td>Series</td>
+                            <td>7.1</td>
+                        </tr>
+                        <tr>
+                            <td>Ozark</td>
+                            <td>Crime, Drama, Thriller</td>
+                            <td>Series</td>
+                            <td>8.5</td>
+                        </tr>
+                        <tr>
+                            <td>The Umbrella Academy</td>
+                            <td>Action, Adventure, Comedy</td>
+                            <td>Series</td>
+                            <td>7.9</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+
     <!-- Footer Section -->
     <footer>
         <ul class="icons">
@@ -126,21 +375,21 @@
                 <a href="#"><i class="fa-solid fa-asterisk"></i></a>
             </li>
             <li>
-                <a href="#"><i class="fa-brands fa-sourcetree"></i></a>
+                <a href="https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs"><i class="fa-brands fa-sourcetree"></i></a>
             </li>
             <li>
                 <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git"><i class="fa-brands fa-github"></i></a>
             </li>
             <li>
-                <a href="#"><i class="fa-regular fa-file-powerpoint"></i></a>
+                <a href="https://www.canva.com/design/DAF9FRN6_EE/bQgnX8pxwmSYIcdLojBSRg/edit?utm_content=DAF9FRN6_EE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"><i class="fa-regular fa-file-powerpoint"></i></a>
             </li>
         </ul>
         <ul class="menu">
             <li>
                 <a href="#">References</a>
-                <a href="#">Data Source</a>
+                <a href="https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs">Data Source</a>
                 <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git">GitHub</a>
-                <a href="#">Presentation PPT</a>
+                <a href="https://www.canva.com/design/DAF9FRN6_EE/bQgnX8pxwmSYIcdLojBSRg/edit?utm_content=DAF9FRN6_EE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Presentation PPT</a>
             </li>
         </ul>
         <p>Created by Group1 @UC Berkeley Extension_Fall 2023</p>
