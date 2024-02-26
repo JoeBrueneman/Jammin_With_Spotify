@@ -3,69 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jammin' with Spotify</title>
-    <link rel="stylesheet" href="/static/css/style.css">
     <script src="https://kit.fontawesome.com/69fddada70.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="/static/img/logo_transparent-background.png" type="image/x-icon">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="/static/img/logo_transparent-background.png" type="image/croppedlogo">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Jammin' with Spotify </title>
+    <!-- D3 library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 <body>
-    <header class="navbar">
-        <div class="container">
-            <img src="/static/img/logo_transparent-background.png" alt="Logo" class="logo">
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand"><img src="/static/img/logo_transparent-background.png" alt="Logo" class="logo"></a>
             <nav class="nav-menu">
-                <a href="#" class="nav-link">Home</a>
-                <a href="#" class="nav-link">Statistics</a>
+                <a href="#showcase" class="nav-link">Home</a>
+                <a href="#combined-section" class="nav-link">Statistics</a>
                 <a href="#" class="nav-link">Things We Do</a>
-                <a href="#" class="nav-link">How This Works</a>
+                <a href="#how-this-works" class="nav-link">How This Works</a>
                 <a href="#" class="nav-link">Let's Get Your Songs!</a>
-                <div class="hamburger-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
             </nav>
+            <div class="hamburger-menu"><i class="fas fa-bars"></i></div>
         </div>
-    </header>
-    
+    </div>
+
+    <!-- Content Sections -->
     <main>
-    <!-- Landing Page Section Starts-->
-        <header class="showcase" id="showcase">
-            <div class="showcase-top">
-                <img src="/static/img/logo_transparent-background.png" alt="Spotify">
-            </div>
+    <!-- landing page section starts-->
+        <header class="showcase">
             <div class="showcase-content">
                 <h1>Jammin' with Spotify</h1>
                 <p>I got jammed in Spotify and now I'm totally dazzled</p>
-                <a href="#tab-1" class="btn btn-xl">
-                    Let's Get Your Songs!<i class="fas fa-chevron-right btn-icon"></i>
-                </a>
+                <a href="#tab-1" class="btn btn-xl">Let's Get Your Songs!<i class="fas fa-chevron-right btn-icon"></i></a>
             </div>
         </header>
 
-    <!-- Landing Page Section Ends-->
+    <!-- landing page section ends-->
 
-    <!-- What We Do Section Starts-->
-        
-        <section class="what-we-do">
-            <h2>This is a website that helps you find your next favorite song.</h2>
-            <p>Curious about how Spotify recommends songs? We show you how.</p>
+    <!-- Statistics section starts-->
+        <section class="combined-section">
+            <div class="text-section">
+                <div class="statistics-section">
+                    <h2>This is a website that helps you find your next favorite song.</h2>
+                    <p>Curious about how Spotify recommends songs? We show you how.</p>
+                </div>
+                <div class="questions-content">
+                    <p class="question">Are you curious about how Spotify recommends your next song?</p>
+                    <p class="question">What kind of features do they study to know you better?</p>
+                    <p class="question">How do they predict your taste in songs based on those features?</p>
+                    <p class="comment">Here we show you how a song recommendation system could answer all these questions.</p>
+                </div>
+            </div>
+            <div class="image-section">
+                <img src="/static/img/spotify sound wave.webp" alt="Sound Wave">
+            </div>
         </section>
+    <!-- Statistics section ends-->
 
-     <!-- What We Do Section Ends-->
-        
-    <!-- How This Works Section Starts-->
-
+    <!-- Section Container Starts -->
+    <div class="section-container">
+        <!-- How This Works Section -->
         <section class="how-this-works">
             <h2>How This Works</h2>
             <ul>
-                <li>Learn 50 million songs from Spotify</li>
-                <li>Create our own database</li>
-                <li>Train our model</li>
-                <li>Analyze your favorite songs</li>
-                <li>Predict your next favorite song</li>
+                <li><i class="fa-solid fa-laptop-file"></i>Learn 50 million songs from Spotify</li>
+                <li><i class="fa-brands fa-creative-commons-sampling"></i>Create our own database</li>
+                <li><i class="fa-solid fa-robot"></i>Train our model</li>
+                <li><i class="fa-solid fa-arrows-left-right-to-line"></i>Analyze your favorite songs</li>
+                <li><i class="fa-solid fa-music"></i>Predict your next favorite song</li>
             </ul>
         </section>
-    
-    <!-- How This Works Section Ends-->
-        
+
+        <!-- Image on the Right -->
+        <div class="image-right">
+            <img src="/static/img/model-section.png" alt="ThingsWeDo">
+        </div>
+    </div>
+    <!-- Section Container Ends -->
+
+    <!-- Steps to Follow Container Starts -->
+    <div class="features">
+        <article>
+            <i class="fa-solid fa-headphones-simple"></i>
+            <div class="inner">
+                <h4>Step 1 : Think of some songs you recently love</h4>
+                <p>Make sure you get their names</p>
+            </div>
+        </article>
+        <article>
+            <i class="fa-solid fa-headphones-simple"></i>
+            <div class="inner">
+                <h4>Step 2 : Write the names down on a piece of paper</h4>
+                <p>Make sure the names you have are the same as the Spotify track names.</p>
+            </div>
+        </article>
+        <article>
+            <i class="fa-solid fa-headphones-simple"></i>
+            <div class="inner">
+                <h4>Step 3 : Fill out the Recommendation request</h4>
+                <p>Now it's time to fill out the request from. Please scroll down!</p>
+            </div>
+        </article>
+    </div>
+    <!-- Steps to Follow Container Ends -->
+
+    <!-- Let's Get Your Songs section starts-->
         <section class="search">
             <h2>What's your favorite Song?</h2>
             <form action="/search" method="get">
@@ -73,37 +115,38 @@
                 <button type="submit">Search</button>
             </form>
         </section>
-    </main>
-    
-<!-- Footer Starts -->
-<footer>
-    <ul class="icons">
-        <li>
-            <a href="#"><i class="fa-solid fa-asterisk"></i></a>
-        </li>
-        <li>
-            <a href="#"><i class="fa-brands fa-sourcetree"></i></a>
-        </li>
-        <li>
-            <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git"><i class="fa-brands fa-github"></i></a>
-        </li>
-        <li>
-            <a href="#"><i class="fa-regular fa-file-powerpoint"></i></a>
-        </li>
-    </ul>
-    <ul class="menu">
-        <li>
-            <a href="#">References</a>
-            <a href="#">Data Source</a>
-            <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git">GitHub</a>
-            <a href="#">Presentation PPT</a>
-        </li>
-    </ul>
-    <p>Created by <i class="fa-solid fa-users-between-lines"></i> Group1 @UC Berkeley Extension_Fall 2023</p>
-</footer>
+    <!-- Let's Get Your Songs section ends-->
 
-<!-- Footer Ends -->
-    
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <ul class="icons">
+            <li>
+                <a href="#"><i class="fa-solid fa-asterisk"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-brands fa-sourcetree"></i></a>
+            </li>
+            <li>
+                <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git"><i class="fa-brands fa-github"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-regular fa-file-powerpoint"></i></a>
+            </li>
+        </ul>
+        <ul class="menu">
+            <li>
+                <a href="#">References</a>
+                <a href="#">Data Source</a>
+                <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git">GitHub</a>
+                <a href="#">Presentation PPT</a>
+            </li>
+        </ul>
+        <p>Created by Group1 @UC Berkeley Extension_Fall 2023</p>
+    </footer>
+    <!-- Footer Section ends -->
+
     <script src="/static/js/main.js"></script>
 </body>
 </html>

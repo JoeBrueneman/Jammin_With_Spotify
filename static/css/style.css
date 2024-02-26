@@ -1,172 +1,344 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;600&display=swap');
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-:root {
-    --white: #ffffff;
-    --black: #000000;
-    --background-dark: #333;
-    --text-color: #333;
-    --button-bg-color: #000001;
-    --button-text-color: #ffffff;
-    --font-family: Montserrat, sans-serif;
+body, html {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
 }
 
-body {
-    font-family: var(--font-family);
-    color: var(--text-color);
-    font-size: 16px;
-    line-height: 1.6;
-    background-color: var(--white);
-}
-
-/* Navigation */
+/* Navbar Styles */
 .navbar {
-    background-color: var(--background-dark);
-    color: var(--white);
-    padding: 20px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+  background-color: #000; /* Black background color */
+  position: fixed; /* Fixed at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px; /* Height of the navbar */
+  z-index: 1000; /* Ensure it stays on top of other content */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* This should space out your logo and nav-menu */
+  align-items: center;
+  padding: 10px 20px; /* Padding around the navbar */
 }
 
-.navbar .container {
+.nav-container {
+  max-width: 940px; /* Max width of the content within the navbar */
+  width: 100%; /* Take up the full width of the navbar */
+  margin: 0 auto; /* Center the navbar content */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* This should space out your logo and nav-menu */
+  align-items: center;
+  padding: 10px 20px;/* Center items vertically */
+}
+
+.nav-brand {
     display: flex;
-    justify-content: space-between;
+    vertical-align: middle;
+    max-width: 200px; /* Adjust the max width of the logo */
+    justify-content: flex-start;
     align-items: center;
+}
+
+.nav-brand img {
+    width: 40%;
+    height: auto;
+    justify-items: flex-start;
 }
 
 .nav-menu {
     display: flex;
-    gap: 20px; 
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
 }
 
 .nav-link {
-    display: inline-block; 
-    text-decoration: none;
-    color: var(--white); 
-    margin: 0; 
+  color: #fff; /* White color text for the links */
+  text-decoration: none; /* No underline on the links */
+  padding: 5px 10px; /* Padding around the links for a better click area */
+  transition: color 0.3s; /* Transition for the hover effect */
 }
 
-.logo {
-    max-width: 100px; 
+.nav-link:hover {
+  color: #1DB954; 
 }
-
-/* Utility Classes */
-.container {
-    max-width: 940px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Header, Sections and Footer */
-header, section, footer {
-    padding: 60px 0;
-}
-
-h1, h2, h3, p {
-    margin-bottom: 20px;
-}
-
-/* Landing Page */
-.showcase {
-    width: 100%;
-    height: 93vh;
-    position: relative;
-    background: url('../img/Spotify-on-phone.jpeg') no-repeat center center/cover;
-}
-
-.showcase::after {
-    content: '';
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background: rgba(0,0,0,0.6);
-    box-shadow: inset 50px 100px 50px #000000;
-}
-
-.showcase-top {
-    position: relative;
-    z-index: 2;
-    height: 100px;
-    /* background-color: #3d3d3d; */
-}
-
-.showcase-top img {
-    
-    width: 300px;
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%,-20%);
-    mix-blend-mode: multiply;
-    
-}
-
-.showcase-top a {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translate(-50%,-50%);
-}
-
-.showcase-content {
-    position: relative;
-    z-index: 2;
-    margin: auto;
+.nav-menu.active {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 15rem;  
-}
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: #000;
+  }
 
-.showcase-content h1 {
-    font-weight: 700;
-    font-size: 4rem;
-    line-height: 2;
-    margin: 0 0 0.1rem;
-}
-
-.showcase-content p {
-    text-transform: uppercase;
-    color: #fff;
-    font-weight: 400;
-    font-size: 2rem;
-    line-height: 2;
-    margin: 0 0 2rem;
-}
-
-/* Buttons */
-.button, .button-3 {
-    display: inline-block;
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
-    padding: 10px 30px;
-    border: none;
+/* Responsive menu for smaller screens */
+@media (max-width: 991px) {
+  .hamburger-menu {
+    display: block; /* Show hamburger menu */
     cursor: pointer;
-    text-decoration: none;
-    margin-top: 20px;
+  }
+
+  .nav-menu {
+    position: absolute;
+    right: 0;
+    top: 60px; /* Position below the navbar */
+    flex-direction: column; /* Stack the links vertically */
+    background-color: #000; /* Black background */
+    width: 100%; /* Full width */
+    display: none; /* Hide by default */
+  }
+
+  .nav-menu.active {
+    display: flex; /* Show when active (toggled by JavaScript) */
+  }
 }
 
-.button:hover, .button-3:hover {
-    background-color: darken(var(--button-bg-color), 10%);
+
+/* Showcase/Hero Section */
+.showcase {
+    background-color: #1DB954; 
+    background-image: url('../img/Spotify-on-phone.jpeg'); 
+    background-size: cover;
+    background-position: center center;
+    height: 100vh; 
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    text-align: left; 
+    position: relative; 
+    padding-top: 80px; 
+    padding-left: 80px; 
 }
 
-/* Responsive Images */
-img {
-    max-width: 100%;
+.showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right, #0004, #0000); 
+}
+.showcase h1 {
+    position: relative;
+    color: #fff;
+    font-size: 4em;
+    z-index: 10;
+}
+
+.showcase p {
+    position: relative;
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 2em;
+    z-index: 10;
+}
+
+.showcase .btn {
+    position: relative;
+    background-color: #000;
+    color: #fff;
+    padding: 1em 2em;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px; 
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.showcase .btn:hover {
+    background-color: #333; 
+}
+
+/* Statistics section styles */
+.combined-section {
+    background-color: #000; 
+    padding: 70px 0px;
+}
+
+.text-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Spacing between text and image sections */
+}
+
+.statistics-section {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.statistics-section h2 {
+    font-size: 2em;
+    color: #1DB954; 
+    font-size: 40px;
+    padding-left: 100px;
+    padding-right: 50px;
+}
+
+.questions-content {
+    flex: 1;
+    padding-left: 20px;
+    font-size: 22px;
+}
+
+.questions-content .question,
+.questions-content .comment {
+    font-size: 1em;
+    color: #fff; 
+    margin-bottom: 1em;
+}
+
+.questions-content .comment {
+    font-style: italic;
+    color: #1DB954; /* Spotify green color for the comment */
+}
+
+.image-section {
+    text-align: center; /* Center the image if it's smaller than the full width */
+}
+
+.image-section img {
+    max-width: 25%; /* Adjust the size of the image to be smaller */
     height: auto;
+    background-color: #000; /* Black background for the image specifically */
 }
+
+/* General Section Styles */
+.section-container {
+    display: flex;
+    justify-content: space-between; /* Adjust as needed for spacing */
+    align-items: center; /* Aligns items vertically */
+    padding: 50px 0; /* Add padding on the top and bottom */
+}
+
+/* How This Works Section Styles */
+.how-this-works {
+    flex: 2; /* Adjust as needed */
+    align-items: flex-start;
+    padding-right: 10px; /* Space between the text and the image */
+}
+
+.how-this-works h2 {
+    color: #1DB954; 
+    padding-left: 300px;
+    font-size: 40px;
+}
+
+.how-this-works ul {
+    list-style-type: none; 
+    padding: 0; 
+    padding-top: 20px;
+    color: #000; 
+    font-size: 22px;
+    padding-left: 300px;
+}
+
+.how-this-works ul li {
+    padding-bottom: 20px; /* Space between list items */
+}
+
+.how-this-works ul li i {
+    margin-right: 30px; 
+}
+
+/* Image Section Styles */
+.image-right {
+    flex: 1.5; /* Adjust as needed */
+    padding-right: 50px;
+}
+
+.image-right img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    
+}
+
+/* Steps to Follow Styles */
+.features {
+    display: flex; 
+    justify-content: space-between; /* Spaces the articles evenly */
+    align-items: flex-start; /* Aligns articles at their top edge */
+    gap: 20px; /* Adds space between each article */
+    padding: 20px 0; /* Adds padding around the entire features container */
+}
+
+.features article {
+    flex: 1; /* Each article takes equal width */
+    display: flex; /* Enables Flexbox layout within each article */
+    flex-direction: column; /* Stacks the image and the inner content vertically */
+    align-items: center; /* Centers the content horizontally */
+    text-align: center; /* Centers the text */
+}
+
+.features .image img {
+    width: 100%; /* Makes images responsive */
+    max-width: 300px; 
+    height: auto; 
+    margin-bottom: 15px; 
+}
+
+.features .inner {
+    padding: 10px; /* Adds padding inside the inner content area */
+}
+
+.features .inner h4 {
+    font-size: 40px;
+    padding-top: 10px;
+}
+
+.features .inner p {
+    font-size: 25px;
+    color: #000; 
+    padding-top: 40px;
+}
+
+.features i {
+    color: #1DB954;
+    font-size: 3em;
+}
+
+/* Let's Get Your Songs section styles */
+.search {
+    background-color: #000; /* Black background */
+    padding-left: 20px; /* Left padding */
+    color: #fff; /* White text color for better contrast against the black background */
+    padding: 30px 30px; /* Adjust padding around the section for spacing */
+    text-align: center;
+}
+
+.search h2 {
+    color: #1ED760; 
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.search input[type="search"] {
+    padding: 10px; /* Padding inside the search box */
+    margin-right: 10px; /* Space between the search box and the button */
+    border: none; /* Remove the default border */
+    font-size: 16px; /* Font size for the text inside the search box */
+    color: #333; /* Dark text color for visibility */
+    background-color: #fff; /* White background for the input field */
+}
+
+.search button {
+    padding: 10px 20px; /* Padding inside the button */
+    border: none; /* Remove the default border */
+    background-color: #1ED760; /* Green background for the button */
+    color: #fff; /* White text color */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    font-size: 16px; /* Font size for the button text */
+}
+
+.search button:hover {
+    background-color: #17c950; /* Slightly different shade of green for hover effect */
+}
+
 
 /* Footer */
 footer {
@@ -237,19 +409,34 @@ footer p {
     }
 }
 
-@media (max-width: 767px) {
-    .nav-menu {
+@media (max-width: 768px) {
+    .navbar .container {
         flex-direction: column;
-        display: none;
+    }
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-link {
+        margin: 10px 0;
+    }
+    .showcase {
+        padding: 80px 20px;
+    }
+    .showcase h1 {
+        font-size: 2rem;
     }
 
-    .nav-menu.active {
-        display: flex; 
+    .statistics-section {
+        flex-direction: column;
     }
 
-    .hamburger-menu {
-        display: block;
+    .statistics-content, .questions-content {
+        margin: 20px 0; /* Stack them with space between vertically */
     }
 }
+
+
 
 
