@@ -19,49 +19,49 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.remove('active');
         }
     });
-
-    // floating button and popup interactions
+    
+    // Floating button and popup interactions
     const recommendationBtn = document.getElementById('teamrecommendationBtn');
     const teamRecommendationPopup = document.getElementById('teamRecommendationPopup');
     const closeBtn = document.querySelector('.close-btn');
-    const teammateIcons = document.querySelectorAll('.teammate-icon');
-
+    
+    // Show the popup when the floating button is clicked
     recommendationBtn.onclick = function() {
         teamRecommendationPopup.style.display = 'block';
     };
-
+    
+    // Hide the popup when the close button is clicked
     closeBtn.onclick = function() {
         teamRecommendationPopup.style.display = 'none';
     };
-
-    teammateIcons.forEach(icon => {
-        icon.onclick = function() {
-            const member = this.getAttribute('data-member');
-            const memberName = document.getElementById('memberName');
-        };
-    });
-
+    
+    // Hide the popup when clicking outside of it
     window.onclick = function(event) {
         if (event.target === teamRecommendationPopup) {
             teamRecommendationPopup.style.display = 'none';
         }
     };
-});
-
-//Recommendation Table
-const buttonItems = document.querySelectorAll('.btn-list')
-const buttonListTables = document.querySelectorAll('.table-list');
-//select table content
-function selectTable(e) {
-    removeTable();
-    //grab table from DOM
+    
+    // Recommendation Table interactions
+    const buttonItems = document.querySelectorAll('.btn-list');
+    const buttonListTables = document.querySelectorAll('.table-list');
+    
+    // Function to show the selected table and hide others
+    function selectTable(e) {
+    // First, remove 'show-table' class from all tables to hide them
+    buttonListTables.forEach(item => {
+        item.style.display = 'none'; // Use display:none to hide
+        });
+    
+    // Add 'show-table' class to the clicked member's table to show it
     const buttonListTable = document.querySelector(`#table-${this.id}`);
-    //add table class
-    buttonListTable.classList.add('show-table');
-}
-function removeTable() {
-    buttonListTables.forEach(item => item.classList.remove('show-table'))
-}
-//listen for button click
-buttonItems.forEach(item => item.addEventListener('click', selectTable))
+        buttonListTable.style.display = 'block'; // Use display:block to show
+    }
+    
+    // Add click event listener to each team member's button
+    buttonItems.forEach(item => {
+        item.addEventListener('click', selectTable);
+    });
+});
+    
 
