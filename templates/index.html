@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Model Deployment</title>
+</head>
+<body>
+    <h1>ML Model Deployment</h1>
+    <form method="post" action="/vector_model_prediction">
+        <label for="track1">Playlist Track:</label>
+        <input type="text" id="track1" name="track1" required>
+        <br>
+     
+        <button type="submit">Predict</button>
+    </form>       
+    
+<table border = 1>
+    {% if result1 is defined %}
+    {% for key, value in result1.items() %}
+
+    <tr>
+        <th> {{ key }} </th>
+        <td> {{ value }} </td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+<table border = 1>
+    {% if result2 is defined %}
+    {% for key, value in result2.items() %}
+
+    <tr>
+        <th> {{ key }} </th>
+        <td> {{ value }} </td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+<table border = 1>
+    {% if result3 is defined %}
+    {% for key, value in result3.items() %}
+
+    <tr>
+        <th> {{ key }} </th>
+        <td> {{ value }} </td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+<table border = 1>
+    {% if result4 is defined %}
+    {% for key, value in result4.items() %}
+
+    <tr>
+        <th> {{ key }} </th>
+        <td> {{ value }} </td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+<table border = 1>
+    {% if result5 is defined %}
+    {% for key, value in result5.items() %}
+
+    <tr>
+        <th> {{ key }} </th>
+        <td> {{ value }} </td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+</body>
+</html>
