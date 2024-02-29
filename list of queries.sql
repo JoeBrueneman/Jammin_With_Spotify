@@ -7,23 +7,23 @@ CREATE TABLE "track_features" (
     "danceability" FLOAT   NOT NULL,
     "energy" FLOAT   NOT NULL,
     "key" INT   NOT NULL,
-    "key_none" INT   NOT NULL,
-    "key_0" INT   NOT NULL,
-    "key_1" INT   NOT NULL,
-    "key_2" INT   NOT NULL,
-    "key_3" INT   NOT NULL,
-    "key_4" INT   NOT NULL,
-    "key_5" INT   NOT NULL,
-    "key_6" INT   NOT NULL,
-    "key_7" INT   NOT NULL,
-    "key_8" INT   NOT NULL,
-    "key_9" INT   NOT NULL,
-    "key_10" INT   NOT NULL,
-    "key_11" INT   NOT NULL,
+    "key_none" INT,
+    "key_0" INT,
+    "key_1" INT,
+    "key_2" INT,
+    "key_3" INT,
+    "key_4" INT,
+    "key_5" INT,
+    "key_6" INT,
+    "key_7" INT,
+    "key_8" INT,
+    "key_9" INT,
+    "key_10" INT,
+    "key_11" INT,
     "loudness" FLOAT   NOT NULL,
     "mode" INT   NOT NULL,
-    "mode_minor" INT   NOT NULL,
-    "mode_major" INT   NOT NULL,
+    "mode_minor" INT,
+    "mode_major" INT,
     "speechiness" FLOAT   NOT NULL,
     "acousticness" FLOAT   NOT NULL,
     "instrumentalness" FLOAT   NOT NULL,
@@ -340,3 +340,172 @@ GROUP BY playlist.pid
 ORDER BY playlist.pid;
 
 SELECT * FROM playlist_stat_weight_mode;
+
+--*
+
+ALTER TABLE IF EXISTS public.track_features
+  	ADD COLUMN time_signature_0 integer DEFAULT 0,
+	ADD COLUMN time_signature_1 integer DEFAULT 0,
+  	ADD COLUMN time_signature_2 integer DEFAULT 0,
+	ADD COLUMN time_signature_3 integer DEFAULT 0,	
+  	ADD COLUMN time_signature_4 integer DEFAULT 0,
+	ADD COLUMN time_signature_5 integer DEFAULT 0,
+	ADD COLUMN time_signature_6 integer DEFAULT 0,	
+  	ADD COLUMN time_signature_7 integer DEFAULT 0;
+	
+	
+
+UPDATE track_features
+SET time_signature_0 = 
+	CASE WHEN time_signature=0
+		THEN 1
+		ELSE 0
+	END;
+
+    -- *****************
+	
+    -- *********
+
+DROP VIEW IF EXISTS playlist_stat_mean_mode;
+CREATE VIEW playlist_stat_mean_mode AS 
+SELECT playlist.pid, COUNT(*) AS tracks_found,
+					AVG(track_features.danceability) AS danceability,
+					AVG(track_features.energy) AS energy,
+					AVG(track_features.loudness) AS loudness,
+					AVG(track_features.speechiness) AS speechiness,
+					AVG(track_features.acousticness) AS acousticness,
+					AVG(track_features.instrumentalness) AS instrumentalness,
+					AVG(track_features.liveness) AS liveness,
+					AVG(track_features.valence) AS valence,
+					AVG(track_features.tempo) AS tempo,
+					AVG(track_features.duration_ms) AS duration_ms,
+
+                    MODE () WITHIN GROUP ( ORDER BY "key" ) AS mode_key,
+					SUM(track_features.key_none) / COUNT(*) AS key_none,
+					SUM(track_features.key_0 ::FLOAT) / COUNT(*) AS key_0,
+					SUM(track_features.key_1 ::FLOAT) / COUNT(*) AS key_1,
+					SUM(track_features.key_2 ::FLOAT) / COUNT(*) AS key_2,
+					SUM(track_features.key_3 ::FLOAT) / COUNT(*) AS key_3,
+					SUM(track_features.key_4 ::FLOAT) / COUNT(*) AS key_4,
+					SUM(track_features.key_5 ::FLOAT) / COUNT(*) AS key_5,
+					SUM(track_features.key_6 ::FLOAT) / COUNT(*) AS key_6,
+					SUM(track_features.key_7 ::FLOAT) / COUNT(*) AS key_7,
+					SUM(track_features.key_8 ::FLOAT) / COUNT(*) AS key_8,
+					SUM(track_features.key_9 ::FLOAT) / COUNT(*) AS key_9,
+					SUM(track_features.key_10 ::FLOAT) / COUNT(*) AS key_10,
+					SUM(track_features.key_11 ::FLOAT) / COUNT(*) AS key_11,
+
+					MODE () WITHIN GROUP ( ORDER BY "mode" ) AS mode,
+					SUM(track_features.mode_minor ::FLOAT) / COUNT(*) AS mode_minor,
+					SUM(track_features.mode_major ::FLOAT) / COUNT(*) AS mode_major,
+					
+					MODE () WITHIN GROUP ( ORDER BY "time_signature" ) AS time_signature,
+					SUM(track_features.time_signature_0 ::FLOAT) / COUNT(*) AS time_signature_0,
+					SUM(track_features.time_signature_1 ::FLOAT) / COUNT(*) AS time_signature_1,
+					SUM(track_features.time_signature_2 ::FLOAT) / COUNT(*) AS time_signature_2,
+					SUM(track_features.time_signature_3 ::FLOAT) / COUNT(*) AS time_signature_3,
+					SUM(track_features.time_signature_4 ::FLOAT) / COUNT(*) AS time_signature_4,
+					SUM(track_features.time_signature_5 ::FLOAT) / COUNT(*) AS time_signature_5,
+					SUM(track_features.time_signature_6 ::FLOAT) / COUNT(*) AS time_signature_6,
+					SUM(track_features.time_signature_7 ::FLOAT) / COUNT(*) AS time_signature_7
+					
+		
+FROM playlist
+INNER JOIN track_features
+ON playlist.track_uri = track_features.track_uri
+GROUP BY playlist.pid
+ORDER BY playlist.pid;
+
+SELECT * FROM playlist_stat_mean_mode
+
+
+-- **
+SELECT * FROM track_recommendations
+
+COPY track_recommendations FROM 'C:\Users\Christophe\OneDrive\Documents\Berkeley_Bootcamp\Section_23_ Project_4\Spotify\spotify_million_playlist_dataset\input_20_tracks.csv' WITH (FORMAT csv);
+
+
+DROP VIEW IF EXISTS track_recommendation_features;
+CREATE VIEW track_recommendation_features AS 
+SELECT track_features.track_uri, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness,
+       track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo,
+       track_features.duration_ms, track_features.time_signature, track_features.mode_minor, track_features.mode_major,
+       track_features.key_none, track_features.key_0, track_features.key_1, track_features.key_2, track_features.key_3, track_features.key_4, track_features.key_5,
+       track_features.key_6, track_features.key_7, track_features.key_8, track_features.key_9, track_features.key_10, track_features.key_11,
+       track_features.time_signature_0, track_features.time_signature_1, track_features.time_signature_2,
+       track_features.time_signature_3, track_features.time_signature_4, track_features.time_signature_5,
+       track_features.time_signature_6, track_features.time_signature_7
+
+FROM track_recommendations
+INNER JOIN track_features
+ON track_recommendations.track_uri = track_features.track_uri;
+
+
+SELECT * FROM track_recommendation_features;
+
+
+
+TRUNCATE track_recommendations;
+
+
+-- New table to include stddev as features
+DROP TABLE IF EXISTS playlist_stat_mean_std_mode_pct;
+CREATE TABLE playlist_stat_mean_std_mode_pct AS 
+SELECT playlist.pid, COUNT(*) AS tracks_found,
+					AVG(track_features.danceability) AS danceability,
+					STDDEV(track_features.danceability) AS danceability_std,
+					AVG(track_features.energy) AS energy,
+					STDDEV(track_features.energy) AS energy_std,
+					AVG(track_features.loudness) AS loudness,
+					STDDEV(track_features.loudness) AS loudness_std,
+					AVG(track_features.speechiness) AS speechiness,
+					STDDEV(track_features.speechiness) AS speechiness_std,
+					AVG(track_features.acousticness) AS acousticness,
+					STDDEV(track_features.acousticness) AS acousticness_std,
+					AVG(track_features.instrumentalness) AS instrumentalness,
+					STDDEV(track_features.instrumentalness) AS instrumentalness_std,
+					AVG(track_features.liveness) AS liveness,
+					STDDEV(track_features.liveness) AS liveness_std,
+					AVG(track_features.valence) AS valence,
+					STDDEV(track_features.valence) AS valence_std,
+					AVG(track_features.tempo) AS tempo,
+					STDDEV(track_features.tempo) AS tempo_std,
+					AVG(track_features.duration_ms) AS duration_ms,
+					STDDEV(track_features.duration_ms) AS duration_ms_std,
+					
+                    MODE () WITHIN GROUP ( ORDER BY "key" ) AS "key",
+					SUM(track_features.key_none) / COUNT(*) AS key_none,
+					SUM(track_features.key_0 ::FLOAT) / COUNT(*) AS key_0,
+					SUM(track_features.key_1 ::FLOAT) / COUNT(*) AS key_1,
+					SUM(track_features.key_2 ::FLOAT) / COUNT(*) AS key_2,
+					SUM(track_features.key_3 ::FLOAT) / COUNT(*) AS key_3,
+					SUM(track_features.key_4 ::FLOAT) / COUNT(*) AS key_4,
+					SUM(track_features.key_5 ::FLOAT) / COUNT(*) AS key_5,
+					SUM(track_features.key_6 ::FLOAT) / COUNT(*) AS key_6,
+					SUM(track_features.key_7 ::FLOAT) / COUNT(*) AS key_7,
+					SUM(track_features.key_8 ::FLOAT) / COUNT(*) AS key_8,
+					SUM(track_features.key_9 ::FLOAT) / COUNT(*) AS key_9,
+					SUM(track_features.key_10 ::FLOAT) / COUNT(*) AS key_10,
+					SUM(track_features.key_11 ::FLOAT) / COUNT(*) AS key_11,
+
+					MODE () WITHIN GROUP ( ORDER BY "mode" ) AS mode,
+					SUM(track_features.mode_minor ::FLOAT) / COUNT(*) AS mode_minor,
+					SUM(track_features.mode_major ::FLOAT) / COUNT(*) AS mode_major,
+					
+					MODE () WITHIN GROUP ( ORDER BY time_signature ) AS time_signature,
+					SUM(track_features.time_signature_0 ::FLOAT) / COUNT(*) AS time_signature_0,
+					SUM(track_features.time_signature_1 ::FLOAT) / COUNT(*) AS time_signature_1,
+					SUM(track_features.time_signature_2 ::FLOAT) / COUNT(*) AS time_signature_2,
+					SUM(track_features.time_signature_3 ::FLOAT) / COUNT(*) AS time_signature_3,
+					SUM(track_features.time_signature_4 ::FLOAT) / COUNT(*) AS time_signature_4,
+					SUM(track_features.time_signature_5 ::FLOAT) / COUNT(*) AS time_signature_5,
+					SUM(track_features.time_signature_6 ::FLOAT) / COUNT(*) AS time_signature_6,
+					SUM(track_features.time_signature_7 ::FLOAT) / COUNT(*) AS time_signature_7
+					
+				
+		
+FROM playlist
+INNER JOIN track_features
+ON playlist.track_uri = track_features.track_uri
+GROUP BY playlist.pid
+ORDER BY playlist.pid;
