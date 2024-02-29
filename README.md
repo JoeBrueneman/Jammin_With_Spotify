@@ -4,50 +4,59 @@
 ##  Comparable Study Of Different Models
 
 * We conduct four different ways of approach to recommend new tracks given a user input playlist, the following flow charts shows the logic behind it:
-![MODEL-FLOW](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/66d13ea1-1b66-4a46-a780-e7987c6404ad)
+![model_flow](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/18a7bbe6-a5d4-475f-b972-9595867953e2)
 
-* We build four models to perform the recommendation task:
+* We build three models to perform the recommendation task:
   * A cosine-similarity model that compare the input playlist vector to all the track vectors;
   * A track-clustering model that cluster all the tracks, then comparing the input playlist vector, after labeling, to all the same cluster of tracks;
-  * A playlist-m-clustering model that cluster all the mean of the playlists audio features, then comparing the input playlist vector, after labeling, to all the same cluster of playlists;
   * A playlist-wm-clustering model that cluster all the weighted-mean of the playlists audio features, then comparing the input playlist vector, after labeling, to all the same cluster of playlists.
 
 ## Model Architecture
-* Model 1: Cosine-Similarity
-![Slide2](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/bae80af8-3782-46bd-b7f2-414e763b7778)
+* Model 1: Cosine-Similarity\
+  Is a method used to evaluate similarity of vectors by calculating the cosine of their angles. In our case, we compare a user’s playlist vector to all the song vectors in our database. The features we use for formulating the vectors are audio features, such as loudness, energy, acoustics, instrumentalness, liveness, etc.. We rank the similarity values of each track by a descending order and recommend the top ones to the user.
+![cosine_flow](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/866c4ebf-d1ae-4f59-99f0-b8f8deb28527)
 
-* Model 2: Track-Clustering
-![Slide3](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/35562536-bb5d-41ee-8560-240df8658ed9)
 
-* Model 3: Playlist-Clustering with mean aggregation
-![Slide4](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/ab2bba40-f2b4-46f6-bc49-9850e901b743)
+* Model 2: Track-Clustering\
+  In recommendation systems, clustering algorithms can be used to group similar items together based on their features. In content-based filtering for tracks, we implement this method to group similar tracks together. We then assign a cluster number to the input playlist by aggregating its features and recommend tracks from the same cluster.
+![track_flow](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/d8f201f7-8735-4e49-965a-8bc83e6d0f94)
 
-* Model 4: Playlist-Clustering with weighted-mean aggregation
-![Slide5](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/aa0808de-df0c-4a5c-898f-124f24c64aa3)
+
+* Model 4: Playlist-Clustering\
+  In recommendation systems, clustering algorithms can be used to group similar users together based on their preferences and behaviors. We assume that the creation of a playlist implies the user’s song preferences and grouping behavior. By grouping similar playlists together and assigning the input playlist to a cluster, we recommend songs from other similar playlists from the same cluster to the user.
+![playlist_flow](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/f6a33a97-9db3-4d98-b99d-5387a4f30511)
 
 ## Training Data
 Please refer to 'Data Pipe' in previous section.
 
 ## Visualization
-* Track clustering with 11 clusters
+* Track clustering with 17 clusters\
+  By running the 'Elbow Method' and TSNE visualization (see jupyter notebook file for details), we set cluster number for tracks equals to 17, and the visualiztion is shown below:
+
+![image](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/bedaf4d4-136b-44a2-a01d-a139cc3cc519)
   
-![track_cluster_11](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/248b91b1-3a16-4ec8-8a5b-ab67c56b9754)
 
-* Playlist clustering
-
-![Slide1](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/22de6020-80ec-4903-b7d0-a158f009bb5e)
-
-
+* Playlist clustering with 18 clusters\
+  By running the 'Elbow Method' and TSNE visualization (see jupyter notebook file for details), we set cluster number playlists equals to 18, and the visualiztion is shown below:
+  
+![image](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/55eadf73-10f4-4624-99dc-f1687a92b0ce)
 
 
-## Evaluation Metrics
+## Validation Method
 
-Explanation of the evaluation metrics used to assess model performance.
-
-## Results
-
-Presentation of model evaluation results.
+We take a playlist dataset as test sample and split it into train (80%) and test (20%) datasets, named 'feed' and 'validate'. We generate a 'predict' dataset by using the 'feed' dataset witht the three models above. Then we compare the similarity of the 'predict' dataset to 'validate' dataset and calculate the accuracy. 
 
 ## Acknowledgments
 
-Give credit to any individuals or resources that contributed to the project.
+A group collaboration of:\
+Christophe Vivensang\
+Gia Liu\
+Joe Brueneman\
+Julia Min\
+Minh Le\
+
+and special thanks to:\
+Lisa\
+Shannon
+
+
