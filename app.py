@@ -13,9 +13,9 @@ import time
 import urllib.parse as parse
 
 # Load Spotify API key information into env variables
-os.environ['SPOTIPY_CLIENT_ID']='eec42f936e1b4cfcab34e7980d9fe51e'  # "SPOTIPY" is not a typo
-os.environ['SPOTIPY_CLIENT_SECRET']='2b4cb469bc554fedace8246bd14a7060'
-os.environ['SPOTIPY_REDIRECT_URI']='http://localhost:3000'
+os.environ['SPOTIPY_CLIENT_ID']=''  # "SPOTIPY" is not a typo
+os.environ['SPOTIPY_CLIENT_SECRET']=''
+os.environ['SPOTIPY_REDIRECT_URI']=''
 
 # Create function which converts a playlist into its mean without touching the categorical variables
 def playlist_mean(df):   
