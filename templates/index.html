@@ -19,9 +19,9 @@
             <nav class="nav-menu">
                 <a href="#showcase" class="nav-link">Home</a>
                 <a href="#combined-section" class="nav-link">Things We Do</a>
-                <a href="#" class="nav-link">Statistics</a>
+                <!--<a href="#" class="nav-link">Statistics</a>-->
                 <a href="#how-this-works" class="nav-link">How This Works</a>
-                <a href="#" class="nav-link">Let's Explore!</a>
+                <a href="#search" class="nav-link">Let's Explore!</a>
             </nav>
             <div class="hamburger-menu"><i class="fas fa-bars"></i></div>
         </div>
@@ -34,7 +34,7 @@
             <div class="showcase-content">
                 <h1>Jammin' with Spotify</h1>
                 <p>I got jammed in Spotify and now I'm totally dazzled</p>
-                <a href="#tab-1" class="btn btn-xl">Let's Explore!<i class="fas fa-chevron-right btn-icon"></i></a>
+                <a href="#search" class="btn btn-xl">Let's Explore!<i class="fas fa-chevron-right btn-icon"></i></a>
             </div>
         </header>
 
@@ -45,7 +45,7 @@
             <div class="text-section">
                 <div class="statistics-section">
                     <h2>This is a website that helps you find your next favorite song.</h2>
-                    <p>Curious about how Spotify recommends songs? We show you how.</p>
+                    <p>Curious about how Spotify recommends songs? We will show you how.</p>
                 </div>
                 <div class="questions-content">
                     <p class="question">Are you curious about how Spotify recommends your next song?</p>
@@ -83,41 +83,107 @@
     </div>
     <!-- Section Container Ends -->
 
+    <!-- Statistics Section Starts-->
+    <div class="statistics-section">
+        <h1>Key insights - 3 different ML methods to approach this problem</h1>
+        <div class="tabs">
+            <button class="tab-links" onclick="openTab(event, 'Model1')">Model 1</button>
+            <button class="tab-links" onclick="openTab(event, 'Model2')">Model 2</button>
+            <button class="tab-links" onclick="openTab(event, 'Model3')">Model 3</button>
+        </div>
+
+        <div id="Model1" class="tab-content">
+            <h2>Model 1 - Cosine-Similarity</h2>
+            <div class="content-flex">
+                <div class="content-left">
+                    <p>Is a method used to evaluate similarity of vectors by calculating the cosine of their angles.
+                        In our case, we compare an user's playlist vector to all the song vectors in our database. 
+                        The features we use for formulating the vectors are audio features, such as loudness, energy, acoustics, instrumentalness, liveness, etc.
+                        We rank the similarity values of each track by a descending order and recommend the top ones to the user.</p>
+                </div>
+                <div class="content-right">
+                    <img src="path/to/your/image1.png" alt="Graph for Model 1">
+                </div>
+            </div>
+        </div>
+
+        <div id="Model2" class="tab-content" style="display:none;">
+            <h2>Model 2 - Tracks Clustering</h2>
+            <div class="content-flex">
+                <div class="content-left">
+                    <p>We use K-means clustering to group the tracks into different clusters based on their audio features. 
+                        The user's playlist is then compared to the clusters and the tracks in the most similar cluster are recommended to the user.</p>
+                </div>
+                <div class="content-right">
+                    <img src="path/to/your/image2.png" alt="Graph for Model 2">
+                </div>
+            </div>
+        </div>
+
+        <div id="Model3" class="tab-content" style="display:none;">
+            <h2>Model 3 - Playlists Clustering</h2>
+            <div class="content-flex">
+                <div class="content-left">
+                    <p>We use K-means clustering to group the playlists into different clusters based on their audio features. 
+                        The user's playlist is then compared to the clusters and the tracks in the most similar cluster are recommended to the user.</p>
+                </div>
+                <div class="content-right">
+                    <img src="path/to/your/image3.png" alt="Graph for Model 3">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Statistics Section Ends-->
+
     <!-- Steps to Follow Container Starts -->
     <div class="features">
         <article>
             <i class="fa-solid fa-headphones-simple"></i>
             <div class="inner">
-                <h4>Step 1 : Think of some songs you recently love</h4>
-                <p>Make sure you get their names</p>
+                <h4>Step 1</h4>
+                <p>Pull up your Spotify Playlist</p>
             </div>
         </article>
         <article>
             <i class="fa-solid fa-headphones-simple"></i>
             <div class="inner">
-                <h4>Step 2 : Write the names down on a piece of paper</h4>
-                <p>Make sure the names you have are the same as the Spotify track names.</p>
+                <h4>Step 2</h4>
+                <p>Click on the three dots to find Spotify URI under the share tab</p>
             </div>
         </article>
         <article>
             <i class="fa-solid fa-headphones-simple"></i>
             <div class="inner">
-                <h4>Step 3 : Fill out the Recommendation request</h4>
-                <p>Now it's time to fill out the request from. Please scroll down!</p>
+                <h4>Step 3</h4>
+                <p>Right-click (on Windows) or Ctrl-Click (on a Mac) on the artist, album or track name.</p>
             </div>
         </article>
     </div>
     <!-- Steps to Follow Container Ends -->
 
-    <!-- Let's Get Your Songs section starts-->
+    <!-- Flex Container Starts Here -->
+    <div class="flex-container">
+        <!-- Left Box Content Starts Here -->
+        <div class="left-box">
+            <h2>Test</h2>
+            <p>Discover your next favorite track.</p>
+        </div>
+        <!-- Left Box Content Ends Here -->
+
+        <!-- Let's Get Your Songs section starts-->
         <section class="search">
-            <h2>What's your favorite Song?</h2>
-            <form action="/search" method="get">
-                <input type="search" name="query" placeholder="Search…" required>
-                <button type="submit">Search</button>
+            <h2>Match me Songs!</h2>
+            <form method="post" action="/vector_model_prediction">
+                <label for="track1">Playlist:</label>
+                <input type="text" id="track1" name="track1" required>
+                <br>
+                <button type="submit">Predict</button>
             </form>
+            <!-- Conditional Section to display -->
         </section>
-    <!-- Let's Get Your Songs section ends-->
+        <!-- Let's Get Your Songs section ends-->
+    </div>
+    <!-- Flex Container Ends Here -->
 
     </main>
 
@@ -134,7 +200,7 @@
                     <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git"><i class="fa-brands fa-github"></i></a>
                 </li>
                 <li>
-                    <a href="https://www.canva.com/design/DAF9FRN6_EE/bQgnX8pxwmSYIcdLojBSRg/edit?utm_content=DAF9FRN6_EE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"><i class="fa-regular fa-file-powerpoint"></i></a>
+                    <a href="https://www.canva.com/design/DAF99Fy3ekI/9b75r8NXRNvxtkiYp56BRg/edit?utm_content=DAF99Fy3ekI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"><i class="fa-regular fa-file-powerpoint"></i></a>
                 </li>
             </ul>
             <ul class="menu">
@@ -142,7 +208,7 @@
                     <a href="#">References</a>
                     <a href="https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs">Data Source</a>
                     <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git">GitHub</a>
-                    <a href="https://www.canva.com/design/DAF9FRN6_EE/bQgnX8pxwmSYIcdLojBSRg/edit?utm_content=DAF9FRN6_EE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Presentation PPT</a>
+                    <a href="https://www.canva.com/design/DAF99Fy3ekI/9b75r8NXRNvxtkiYp56BRg/edit?utm_content=DAF99Fy3ekI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Presentation PPT</a>
                 </li>
             </ul>
             <p>Created by Group1 @UC Berkeley Extension_Fall 2023</p>
@@ -217,20 +283,20 @@
                             <h3>Top Artists</h3>
                             <ul>
                                 <li>#1 Avril Lavinge</li>
-                                <li>#2 Beyonce</li>
+                                <li>#2 Evanescence</li>
                                 <li>#3 SZA</li>
                                 <li>#4 Billie Ellish</li>
-                                <li>#5 Conor Price</li>
+                                <li>#5 Beyonce</li>
                             </ul>
                         </div>
                         <div class="wrapped-right-column">
                             <h3>Top Songs</h3>
                             <ul>
                                 <li>#1 When You're Gone</li>
-                                <li>#2 Irreplaceable</li>
+                                <li>#2 Bring Me To Life</li>
                                 <li>#3 Snooze</li>
                                 <li>#4 Ocean Eyes</li>
-                                <li>#5 You Said</li>
+                                <li>#5 Irreplaceable</li>
                             </ul>
                         </div>
                     </div>
@@ -245,26 +311,26 @@
                         <div class="wrapped-left-column">
                             <h3>Top Artists</h3>
                             <ul>
-                                <li>#1 Avril Lavinge</li>
-                                <li>#2 Beyonce</li>
-                                <li>#3 SZA</li>
-                                <li>#4 Billie Ellish</li>
-                                <li>#5 Conor Price</li>
+                                <li>#1 Trust</li>
+                                <li>#2 Queen</li>
+                                <li>#3 Bon Jovi</li>
+                                <li>#4 Scorpions</li>
+                                <li>#5 Adele</li>
                             </ul>
                         </div>
                         <div class="wrapped-right-column">
                             <h3>Top Songs</h3>
                             <ul>
-                                <li>#1 When You're Gone</li>
-                                <li>#2 Irreplaceable</li>
+                                <li>#1 Antisocial</li>
+                                <li>#2 Bohemeian Rhapsody</li>
                                 <li>#3 Snooze</li>
-                                <li>#4 Ocean Eyes</li>
-                                <li>#5 You Said</li>
+                                <li>#4 Wind Of Change</li>
+                                <li>#5 Set Fire To The Rain</li>
                             </ul>
                         </div>
                     </div>
                     <div class="wrapped-footer">
-                        <span>Top Genre - Alternative Rock</span>
+                        <span>Top Genre - Rock</span>
                     </div>
                 </div>
                 <!--Joe-->
@@ -274,26 +340,26 @@
                         <div class="wrapped-left-column">
                             <h3>Top Artists</h3>
                             <ul>
-                                <li>#1 Avril Lavinge</li>
-                                <li>#2 Beyonce</li>
-                                <li>#3 SZA</li>
-                                <li>#4 Billie Ellish</li>
-                                <li>#5 Conor Price</li>
+                                <li>#1 Lady Ga Ga</li>
+                                <li>#2 Katy Perry</li>
+                                <li>#3 OneRepublic</li>
+                                <li>#4 Eminem</li>
+                                <li>#5 Bruno Mars</li>
                             </ul>
                         </div>
                         <div class="wrapped-right-column">
                             <h3>Top Songs</h3>
                             <ul>
-                                <li>#1 When You're Gone</li>
-                                <li>#2 Irreplaceable</li>
-                                <li>#3 Snooze</li>
-                                <li>#4 Ocean Eyes</li>
-                                <li>#5 You Said</li>
+                                <li>#1 Poker Face</li>
+                                <li>#2 Roar</li>
+                                <li>#3 Counting Stars</li>
+                                <li>#4 Without Me</li>
+                                <li>#5 The Lazy Song</li>
                             </ul>
                         </div>
                     </div>
                     <div class="wrapped-footer">
-                        <span>Top Genre - Alternative Rock</span>
+                        <span>Top Genre - Pop/Rock/R&B/Hip-Hop</span>
                     </div>
                 </div>
                 <!--Minh-->
@@ -303,26 +369,26 @@
                         <div class="wrapped-left-column">
                             <h3>Top Artists</h3>
                             <ul>
-                                <li>#1 Avril Lavinge</li>
-                                <li>#2 Beyonce</li>
-                                <li>#3 SZA</li>
-                                <li>#4 Billie Ellish</li>
-                                <li>#5 Conor Price</li>
+                                <li>#1 Alesso</li>
+                                <li>#2 Martin Garrix</li>
+                                <li>#3 Gryffin</li>
+                                <li>#4 Seven Lions</li>
+                                <li>#5 3lau</li>
                             </ul>
                         </div>
                         <div class="wrapped-right-column">
                             <h3>Top Songs</h3>
                             <ul>
-                                <li>#1 When You're Gone</li>
-                                <li>#2 Irreplaceable</li>
-                                <li>#3 Snooze</li>
-                                <li>#4 Ocean Eyes</li>
-                                <li>#5 You Said</li>
+                                <li>#1 Scars</li>
+                                <li>#2 Scared to be Lonely</li>
+                                <li>#3 Nobody Compares to You</li>
+                                <li>#4 Strangers</li>
+                                <li>#5 How you Love Me</li>
                             </ul>
                         </div>
                     </div>
                     <div class="wrapped-footer">
-                        <span>Top Genre - Alternative Rock</span>
+                        <span>Top Genre - Electronic Dance Music</span>
                     </div>
                 </div>
             </div>

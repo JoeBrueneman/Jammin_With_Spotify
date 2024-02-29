@@ -13,24 +13,24 @@ body, html {
 
 /* Navbar Styles */
 .navbar {
-  background-color: #000; /* Black background color */
-  position: fixed; /* Fixed at the top */
+  background-color: #000; 
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
-  height: 90px; /* Height of the navbar */
+  height: 90px; 
   z-index: 1000; /* Ensure it stays on top of other content */
-  display: flex; /* Use flexbox for alignment */
+  display: flex; 
   justify-content: space-between; 
   align-items: center;
   padding: 10px 20px; /* Padding around the navbar */
 }
 
 .nav-container {
-  max-width: 940px; /* Max width of the content within the navbar */
-  width: 100%; /* Take up the full width of the navbar */
-  margin: 0 auto; /* Center the navbar content */
-  display: flex; /* Use flexbox for alignment */
+  max-width: 940px; 
+  width: 100%; 
+  margin: 0 auto; 
+  display: flex; 
   justify-content: space-between; 
   align-items: center;
   padding: 10px 20px;/* Center items vertically */
@@ -58,10 +58,10 @@ body, html {
 }
 
 .nav-link {
-  color: #fff; /* White color text for the links */
+  color: #fff; 
   text-decoration: none; /* No underline on the links */
-  padding: 5px 10px; /* Padding around the links for a better click area */
-  transition: color 0.3s; /* Transition for the hover effect */
+  padding: 5px 10px; 
+  transition: color 0.3s; 
 }
 
 .nav-link:hover {
@@ -166,7 +166,14 @@ body, html {
     padding-right: 50px;
 }
 
+.statistics-section p{
+    font-size: 20px;
+    padding-top: 30px;
+    padding-left: 100px;
+}
+
 .questions-content {
+    padding-top: 50px;
     flex: 1;
     padding-left: 20px;
     font-size: 22px;
@@ -185,21 +192,21 @@ body, html {
 }
 
 .image-section {
-    text-align: center; /* Center the image */
+    text-align: center; 
 }
 
 .image-section img {
     max-width: 25%; /* Adjust the size of the image to be smaller */
     height: auto;
-    background-color: #000; /* Black background for the image specifically */
+    background-color: #000; 
 }
 
 /* General Section Styles */
 .section-container {
     display: flex;
-    justify-content: space-between; /* Adjust as needed for spacing */
-    align-items: center; /* Aligns items vertically */
-    padding: 50px 0; /* Add padding on the top and bottom */
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 50px 0; 
 }
 
 /* How This Works Section Styles */
@@ -239,37 +246,38 @@ body, html {
 }
 
 .image-right img {
-    width: 100%; /* Make the image responsive */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%; 
+    height: auto; 
     
 }
 
 /* Steps to Follow Styles */
 .features {
     display: flex; 
-    justify-content: space-between; /* Spaces the articles evenly */
-    align-items: flex-start; /* Aligns articles at their top edge */
-    gap: 20px; /* Adds space between each article */
-    padding: 20px 0; /* Adds padding around the entire features container */
+    justify-content: space-between; 
+    align-items: flex-start;
+    gap: 20px; 
+    padding: 20px 0; 
+    padding-top: 50px;
 }
 
 .features article {
-    flex: 1; /* Each article takes equal width */
-    display: flex; /* Enables Flexbox layout within each article */
-    flex-direction: column; /* Stacks the image and the inner content vertically */
-    align-items: center; /* Centers the content horizontally */
-    text-align: center; /* Centers the text */
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
 }
 
 .features .image img {
-    width: 100%; /* Makes images responsive */
+    width: 100%; 
     max-width: 300px; 
     height: auto; 
     margin-bottom: 15px; 
 }
 
 .features .inner {
-    padding: 10px; /* Adds padding inside the inner content area */
+    padding: 10px; 
 }
 
 .features .inner h4 {
@@ -288,40 +296,264 @@ body, html {
     font-size: 3em;
 }
 
-/* Let's Get Your Songs section styles */
+/* Statistics Section Styles */
+.statistics-section {
+    padding: 50px 0; 
+    background-color: #000; 
+    color: #fff; 
+}
+
+.statistics-section h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 40px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-top: 30px;
+    font-size: 20px;
+}
+
+.tab-links {
+    background-color: #1ED760;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tab-links:hover, .tab-links.active {
+    background-color: #17c950;
+}
+
+.tab-content {
+    display: none; /* Hide all tab content by default */
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.tab-content h2 {
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 50px;
+}
+
+.tab-content.active {
+    display: block; /* Show active tab content */
+}
+
+.content-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.content-left, .content-right {
+    flex-basis: 48%; /* Adjust this value as needed */
+    padding-left: 60px;
+}
+
+.content-left {
+    font-size: 25px;
+}
+
+.content-right img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Ensure images are block level for proper spacing */
+}
+
+/* Flex Container Styles */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 150px; 
+    background-color: #fff; 
+    color: #000; 
+    padding-top: 30px;
+}
+
+.left-box, .search {
+    flex: 1; /* Adjust as needed for sizing */
+    padding: 20px; /* Adjust as needed */
+}
+
+/* Let's Explore section styles */
+.body {
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
 .search {
-    background-color: #000; /* Black background */
-    padding-left: 20px; /* Left padding */
-    color: #fff; /* White text color for better contrast against the black background */
-    padding: 30px 30px; /* Adjust padding around the section for spacing */
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
-.search h2 {
-    color: #1ED760; 
-    margin-bottom: 20px; /* Space below the heading */
+.search label {
+    font-size: 30px;
+    color: #000;
+}
+
+.search form {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.search h2, .left-box h2 {
+    color: #1ED760;
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+.search input[type="text"] {
+    width: 30%; 
+    padding: 12px 20px; 
+    font-size: 18px;
+    margin-right: 10px; 
+    border: 2px solid #ddd; 
+    border-radius: 4px; 
+}
+
+.search input[type="search"], .search button {
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 5px 0; 
 }
 
 .search input[type="search"] {
-    padding: 10px; /* Padding inside the search box */
-    margin-right: 10px; /* Space between the search box and the button */
-    border: none; /* Remove the default border */
-    font-size: 16px; /* Font size for the text inside the search box */
-    color: #333; /* Dark text color for visibility */
-    background-color: #fff; /* White background for the input field */
+    border: none;
+    color: #333;
+    background-color: #fff;
 }
 
 .search button {
-    padding: 10px 20px; /* Padding inside the button */
-    border: none; /* Remove the default border */
-    background-color: #1ED760; 
-    color: #fff; /* White text color */
-    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
-    font-size: 16px; /* Font size for the button text */
+    border: none;
+    background-color: #1ED760;
+    color: #fff;
+    cursor: pointer;
 }
 
 .search button:hover {
-    background-color: #17c950; /* Slightly different shade of green for hover effect */
+    background-color: #17c950;
+}
+
+/* Result.html Styles */
+.results {
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start;
+    gap: 25px;
+    color: #1ED760;
+    padding: 20px 0;
+    background-color: #000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+.container h1 {
+    text-align: center;
+    padding-bottom: 50px;
+    font-size: 40px;
+    color: #1ED760;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.album-card {
+    background-color: #88888889;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; 
+    max-width: 200px; 
+    padding-bottom: 15px;
+}
+
+.album-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-width: 180px; 
+    border-radius: 10px; 
+    margin-top: 15px;
+}
+
+.card-body {
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-title, .card-text, .text-muted {
+    margin: 5px 0;
+}
+
+.card-title {
+    font-size: 20px; 
+}
+
+.card-text {
+    font-size: 14px; 
+}
+
+.text-muted {
+    font-size: 12px; 
+    color: #888;
+    font-style: italic;
+}
+
+audio {
+    width: 100%;
+    max-width: 250px; 
+    margin: auto; 
+}
+
+/* Back to Home */
+.b-home {
+    background-color: #000;
+    padding: 50px;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #1ED760; 
+    color: #000; 
+    text-decoration: none; 
+    border-radius: 20px; 
+    transition: background-color 0.3s ease; 
+    justify-content: center;
+}
+
+.btn-back:hover {
+    background-color: #17a64a; 
 }
 
 /* Footer */
@@ -467,7 +699,7 @@ footer p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Reduced gap for closer alignment */
+    gap: 20px; 
 }
 
 /* Style for the member's Recommendations */
@@ -485,7 +717,7 @@ footer p {
 
 /* Style for the buttons */
 .member .btn-list {
-    font-size: 20px; 
+    font-size: 18px; 
     color: white;
     background-color: #333; 
     padding: 12px 24px; 
@@ -600,18 +832,18 @@ footer p {
     }
 
     .hamburger-menu {
-        display: block; /* Show hamburger menu */
+        display: block; 
         cursor: pointer;
       }
     
       .nav-menu {
         position: absolute;
         right: 0;
-        top: 60px; /* Position below the navbar */
-        flex-direction: column; /* Stack the links vertically */
+        top: 60px; 
+        flex-direction: column; 
         background-color: #000; 
-        width: 100%; /* Full width */
-        display: none; /* Hide by default */
+        width: 100%; 
+        display: none; 
       }
     
       .nav-menu.active {
