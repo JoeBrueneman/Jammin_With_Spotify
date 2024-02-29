@@ -1,6 +1,4 @@
-﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
--- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
-
+﻿
 
 CREATE TABLE "track_features" (
     "danceability" FLOAT   NOT NULL,
@@ -35,6 +33,14 @@ CREATE TABLE "track_features" (
     "analysis_url" VARCHAR(100)   NOT NULL,
     "duration_ms" INT   NOT NULL,
     "time_signature" INT   NOT NULL,
+    "time_signature_0" INT   NOT NULL,
+    "time_signature_1" INT   NOT NULL,
+    "time_signature_2" INT   NOT NULL,
+    "time_signature_3" INT   NOT NULL,
+    "time_signature_4" INT   NOT NULL,
+    "time_signature_5" INT   NOT NULL,
+    "time_signature_6" INT   NOT NULL,
+    "time_signature_7" INT   NOT NULL,
     CONSTRAINT "pk_track_features" PRIMARY KEY (
         "track_uri"
      )
@@ -47,7 +53,7 @@ CREATE TABLE "playlist" (
     "pos" INT   NOT NULL,
     "track_name" VARCHAR(400),
     "track_uri" VARCHAR(70)   NOT NULL,
-    "artist_name" VARCHAR(400),
+    "artist_name" VARCHAR(400)   NOT NULL,
     "artist_uri" VARCHAR(70)   NOT NULL,
     "album_name" VARCHAR(400),
     "album_uri" VARCHAR(70)   NOT NULL,
