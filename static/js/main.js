@@ -1,40 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Nav menu interactions
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const navMenu = document.querySelector('.nav-menu');
-    hamburgerMenu.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-    });
-
-    // Close nav menu on link click
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(function(link) {
+    document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            const targetSection = document.querySelector(this.getAttribute('href'));
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-            navMenu.classList.remove('active');
+            const targetClass = this.getAttribute('href').substring(1); 
+            const targetSection = document.querySelector('.' + targetClass); 
+            if (targetSection) {
+                const navbarHeight = document.querySelector('.navbar').offsetHeight; 
+                const offsetPosition = targetSection.getBoundingClientRect().top + window.scrollY - navbarHeight; 
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
         });
     });
 
-    // Close nav menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!navMenu.contains(e.target) && !hamburgerMenu.contains(e.target)) {
-            navMenu.classList.remove('active');
-        }
-    });
-
-    // Explore button
+    // Explore button functionality (if applicable)
     const exploreButton = document.querySelector('.showcase .btn');
-    exploreButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        const searchSection = document.querySelector('.search');
-        searchSection.scrollIntoView({ behavior: 'smooth' });
-    });
+    if (exploreButton) {
+        exploreButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            const searchSection = document.querySelector('.search');
+            searchSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 
     // Tab functionality
     function openTab(event, modelName) {
-        var tabcontent, tablinks;
+        let tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tab-content");
         for (let i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
@@ -46,10 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById(modelName).style.display = "block";
         event.currentTarget.className += " active";
     }
-    window.openTab = openTab; // Make openTab available globally
+    window.openTab = openTab;
 
     // Automatically open the first tab on page load
-    document.querySelector('.tab-links').click();
+    const firstTab = document.querySelector('.tab-links');
+    if (firstTab) {
+        firstTab.click();
+    }
 
     // Adjust audio volume
     const audios = document.querySelectorAll('audio');

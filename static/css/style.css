@@ -207,6 +207,8 @@ body, html {
     justify-content: space-between; 
     align-items: center; 
     padding: 50px 0; 
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 /* How This Works Section Styles */
@@ -297,13 +299,13 @@ body, html {
 }
 
 /* Statistics Section Styles */
-.statistics-section {
+.model-section {
     padding: 50px 0; 
     background-color: #000; 
     color: #fff; 
 }
 
-.statistics-section h1 {
+.model-section h1 {
     text-align: center;
     margin-bottom: 30px;
     color: #fff;
@@ -325,6 +327,7 @@ body, html {
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 25px;
 }
 
 .tab-links:hover, .tab-links.active {
@@ -354,18 +357,20 @@ body, html {
 }
 
 .content-left, .content-right {
-    flex-basis: 48%; /* Adjust this value as needed */
+    flex-basis: 48%;
     padding-left: 60px;
 }
 
-.content-left {
+.content-left p {
     font-size: 25px;
+    margin-bottom: 40px;
 }
 
 .content-right img {
     max-width: 100%;
     height: auto;
-    display: block; /* Ensure images are block level for proper spacing */
+    display: block;
+    padding-right: 30px;
 }
 
 /* Flex Container Styles */
@@ -379,8 +384,8 @@ body, html {
 }
 
 .left-box, .search {
-    flex: 1; /* Adjust as needed for sizing */
-    padding: 20px; /* Adjust as needed */
+    flex: 1; 
+    padding: 20px;
 }
 
 /* Let's Explore section styles */
@@ -409,7 +414,7 @@ body, html {
 }
 
 .search h2, .left-box h2 {
-    color: #1ED760;
+    color: #000;
     margin-bottom: 20px;
     font-size: 35px;
 }
@@ -433,13 +438,13 @@ body, html {
 .search input[type="search"] {
     border: none;
     color: #333;
-    background-color: #fff;
+    background-color: #000;
 }
 
 .search button {
     border: none;
     background-color: #1ED760;
-    color: #fff;
+    color: #000;
     cursor: pointer;
 }
 
@@ -678,6 +683,7 @@ footer p {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    position: absolute;
 }
 
 .close-btn:hover,
@@ -830,13 +836,8 @@ footer p {
     .container {
         padding: 20px;
     }
-
-    .hamburger-menu {
-        display: block; 
-        cursor: pointer;
-      }
     
-      .nav-menu {
+    .nav-menu {
         position: absolute;
         right: 0;
         top: 60px; 
@@ -844,11 +845,11 @@ footer p {
         background-color: #000; 
         width: 100%; 
         display: none; 
-      }
+    }
     
-      .nav-menu.active {
+    .nav-menu.active {
         display: flex; 
-      }
+    }
 }
 
 @media (max-width: 768px) {
