@@ -26,7 +26,7 @@ A similar effort was made to collect the music genres associated with the artist
 The csv file with the feature information for the 2,214,992 unique tracks is loaded into a table in a PostgreSQL database.
 <br><br>
 <img src="https://github.com/JoeBrueneman/Jammin_With_Spotify/blob/Christophe/Images/track_feature_database.PNG" alt="View of the track feature table" width="900"> <br><br>
-The <i>key</i> (0 = C, 1 = C♯/D♭, 2 = D, etc.), <i>mode</i> (minor or major), and <i>time response</i> (beats per bar) features have numerical values but are in fact categorical variables. We converted the information into dummy variables after importation with a PostgreSQL query rather than doing it with pandas prior to loading the data.
+The <i>key</i> (0 = C, 1 = C♯/D♭, 2 = D, etc.), <i>mode</i> (minor or major), and <i>time signature</i> (beats per bar) features have numerical values but are in fact categorical variables. We converted the information into dummy variables after importation with a PostgreSQL query rather than doing it with pandas prior to loading the data.
 <br><br>
 <img src="https://github.com/JoeBrueneman/Jammin_With_Spotify/blob/Christophe/Images/tracks_key_mode_dummies.PNG" alt="View of the dummy variables" width="900"> <br><br>
 
@@ -39,7 +39,7 @@ The two tables can be linked by the <i>track_uri</i> parameter.<br><br>
 
 ### Joining Tables
 In preparation for the clusterization of the data, we experimented two approaches:
-- Approach 1: We summarize each individual playlist by averaging the numerical values of the features over all the tracks it contains. Note that the mean value of the key, the mode, and the time response features have no meaning and will be excluded from the model. In lieu of the mean, the statistical mode of the feature is reported in the corresponding dummy variable making the value a representation of the most common keys, time response, and the minor or major modes present in the playlist. This approach is used when comparing a playlist directly with the tracks in the database.
+- Approach 1: We summarize each individual playlist by averaging the numerical values of the features over all the tracks it contains. Note that the mean value of the key, the mode, and the time signature features have no meaning and will be excluded from the model. In lieu of the mean, the statistical mode of the feature is reported in the corresponding dummy variable making the value a representation of the most common keys, time signature, and the minor or major modes present in the playlist. This approach is used when comparing a playlist directly with the tracks in the database.
   <br><br>
   <img src="https://github.com/JoeBrueneman/Jammin_With_Spotify/blob/Christophe/Images/View_mean.PNG" alt="View of the joined tables with averages" width="900"> <br><br>
 - Approach 2: A limitation of the first approach is that the mathematical averages hide the distribution for the features. A narrow distribution could mean that the user consciously or unconsciously gave a higher importance for this feature. We supplemented the number of features by adding the standard deviation of all the continuous variables for each playlist. A smaller standard deviation will reinforce the importance of the feature for the owner of the playlist, and will play in the clusterization. This approach is used when comparing a playlist with other playlists from the same cluster.
