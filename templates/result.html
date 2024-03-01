@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/69fddada70.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="/static/img/logo_transparent-background.png" type="image/croppedlogo">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Jammin' with Spotify - ML Model Deployment</title>
+    <!-- D3 library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <!-- <section class="results">
+        <h1>Recommended Songs</h1>
+    </section>    
+    
+    <div class="table-container">
+    <table border = 1>
+        {% if result1 is defined %}
+        {% for key, value in result1.items() %}
+
+        <tr>
+            <th> {{ key }} </th>
+            <td> {{ value }} </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+    <table border = 1>
+        {% if result2 is defined %}
+        {% for key, value in result2.items() %}
+
+        <tr>
+            <th> {{ key }} </th>
+            <td> {{ value }} </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+    <table border = 1>
+        {% if result3 is defined %}
+        {% for key, value in result3.items() %}
+
+        <tr>
+            <th> {{ key }} </th>
+            <td> {{ value }} </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+    <table border = 1>
+        {% if result4 is defined %}
+        {% for key, value in result4.items() %}
+
+        <tr>
+            <th> {{ key }} </th>
+            <td> {{ value }} </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+    <table border = 1>
+        {% if result5 is defined %}
+        {% for key, value in result5.items() %}
+
+        <tr>
+            <th> {{ key }} </th>
+            <td> {{ value }} </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+    </div>-->
+    <section class="results">
+        <div class="container">
+            <a href="#" class="nav-brand"><img src="/static/img/logo_transparent-background.png" alt="Logo" class="logo"></a>
+            <h1>Recommended Songs</h1>
+            <div class="album-grid">
+                {% for result in [result1, result2, result3, result4, result5] %}
+                {% if result %}
+                <div class="album-card">
+                    <img src="{{ result['Album Cover'] }}" alt="Album Cover">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ result['Track Name'] }}</h5>
+                        <p class="card-text">{{ result['Artist Name'] }}</p>
+                        {% if result['Preview URL'] %}
+                            <audio controls src="{{ result['Preview URL'] }}">Your browser does not support the audio element.</audio>
+                        {% else %}
+                            <p class="text-muted">Preview not available</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>  
+    
+    <!-- Back to Home Section-->
+    <section class="b-home">
+        <div class="back-button-container">
+            <a href="{{ url_for('home') }}" class="btn btn-back">Back to Home</a>
+        </div>
+    </section>
+    
+    <!-- Footer Section -->
+    <footer>
+        <ul class="icons">
+            <li><a href="#"><i class="fa-solid fa-asterisk"></i></a></li>
+            <li><a href="https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs"><i class="fa-brands fa-sourcetree"></i></a></li>
+            <li><a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git"><i class="fa-brands fa-github"></i></a></li>
+            <li><a href="https://www.canva.com/design/DAF99Fy3ekI/9b75r8NXRNvxtkiYp56BRg/edit?utm_content=DAF99Fy3ekI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"><i class="fa-regular fa-file-powerpoint"></i></a></li>
+        </ul>
+        <ul class="menu">
+            <li>
+                <a href="#">References</a>
+                <a href="https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs">Data Source</a>
+                <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git">GitHub</a>
+                <a href="https://www.canva.com/design/DAF99Fy3ekI/9b75r8NXRNvxtkiYp56BRg/edit?utm_content=DAF99Fy3ekI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Presentation PPT</a>
+            </li>
+        </ul>
+        <p>Created by Group1 @UC Berkeley Extension_Fall 2023</p>
+    </footer>
+    <!-- Footer Section ends -->
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
