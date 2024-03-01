@@ -91,7 +91,7 @@ Please refer to 'Data Pipe' in previous section.
 
 ## Validation Method
 
-We take a playlist dataset as test sample and split it into train (80%) and test (20%) datasets, named 'feed' and 'validate'. We generate a 'predict' dataset by using the 'feed' dataset witht the three models above. Then we compare the similarity of the 'predict' dataset to 'validate' dataset and calculate the accuracy. 
+We take a playlist dataset as test sample and split it into train (80%) and test (20%) datasets, named 'feed' and 'validate'. We generate a 'predict' dataset by using the 'feed' dataset with the three models above. Then we compare the similarity of the 'predict' dataset to 'validate' dataset and calculate the accuracy. 
 
 
 ## Website
