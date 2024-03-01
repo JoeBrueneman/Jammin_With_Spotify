@@ -98,6 +98,18 @@ We take a playlist dataset as test sample and split it into train (80%) and test
 
 The 'Jammin' with Spotify' website is a responsive and innovative platform designed to explore musical tastes and suggest a variety of songs from a database of a million Spotify playlists. It provides clear instructions for users on how to test out the model. By inputting a Spotify playlist URI, the machine learning model assesses musical preferences to recommend five personalized songs, complete with brief previews for immediate listening. Developed from analyzing data across 1 million Spotify playlists, this tool not only showcases a method of song recommendation through technology but also offers insights into our approach. These insights, based on three distinct approaches to data analysis, are accessible in the 'Statistics' section, enhancing user understanding of the underlying processes.
 
+![screenshot_2024-02-29_at_20 48 22_720](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/142447460/b57521eb-982e-47f9-9a9d-bfee65e5ac8e)
+
+![screenshot_2024-02-29_at_20 49 10_720](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/142447460/56144a7c-08a2-4545-9446-98d39412d690)
+
+![screenshot_2024-02-29_at_20 49 26_720](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/142447460/0fef4dbf-3ee4-410b-88fc-2cd6be7901ff)
+
+![screenshot_2024-02-29_at_20 49 57_720](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/142447460/b45be3c6-0011-43c8-a9cb-b411077faee3)
+
+![image_720](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/142447460/0cfb2aa9-7a0e-4876-a22b-9406e724b4b9)
+
+![image_720](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/142447460/7431b707-8269-49dd-bcb7-924a628d0028)
+
 ## Acknowledgments
 
 A group collaboration of:\
