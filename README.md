@@ -53,8 +53,8 @@ In preparation for the clusterization of the data, we experimented two approache
 
 * We build three models to perform the recommendation task:
   * A cosine-similarity model that compare the input playlist vector to all the track vectors;
-  * A track-clustering model that cluster all the tracks, then comparing the input playlist vector, after labeling, to all the same cluster of tracks;
-  * A playlist-wm-clustering model that cluster all the weighted-mean of the playlists audio features, then comparing the input playlist vector, after labeling, to all the same cluster of playlists.
+  * A track-clustering model that clusters all the tracks, then comparing the input playlist vector, after labeling, to all the same cluster of tracks;
+  * A playlist-clustering model that clusters all the weighted-mean of the playlists audio features, then comparing the input playlist vector, after labeling, to all the same cluster of playlists.
 
 ## Model Architecture
 * Model 1: Cosine-Similarity\
@@ -64,12 +64,14 @@ In preparation for the clusterization of the data, we experimented two approache
 
 * Model 2: Track-Clustering\
   In recommendation systems, clustering algorithms can be used to group similar items together based on their features. In content-based filtering for tracks, we implement this method to group similar tracks together. We then assign a cluster number to the input playlist by aggregating its features and recommend tracks from the same cluster.
-![track_flow](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/d8f201f7-8735-4e49-965a-8bc83e6d0f94)
+![track_cluster](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/82e7bf7c-e2f7-4765-9142-9e82f7088ae9)
+
 
 
 * Model 3: Playlist-Clustering\
   In recommendation systems, clustering algorithms can be used to group similar users together based on their preferences and behaviors. We assume that the creation of a playlist implies the user’s song preferences and grouping behavior. By grouping similar playlists together and assigning the input playlist to a cluster, we recommend songs from other similar playlists from the same cluster to the user.
-![playlist_flow](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/f6a33a97-9db3-4d98-b99d-5387a4f30511)
+![playlist cluster](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/6467a5c2-f90e-4393-bd52-edbce47f0aa8)
+
 
 ## Training Data
 Please refer to 'Data Pipe' in previous section.
