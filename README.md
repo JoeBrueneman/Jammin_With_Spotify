@@ -91,6 +91,11 @@ Please refer to 'Data Pipe' in previous section.
 
 We take a playlist dataset as test sample and split it into train (80%) and test (20%) datasets, named 'feed' and 'validate'. We generate a 'predict' dataset by using the 'feed' dataset witht the three models above. Then we compare the similarity of the 'predict' dataset to 'validate' dataset and calculate the accuracy. 
 
+
+## Website
+
+The 'Jammin' with Spotify' website is a responsive and innovative platform designed to explore musical tastes and suggest a variety of songs from a database of a million Spotify playlists. It provides clear instructions for users on how to test out the model. By inputting a Spotify playlist URI, the machine learning model assesses musical preferences to recommend five personalized songs, complete with brief previews for immediate listening. Developed from analyzing data across 1 million Spotify playlists, this tool not only showcases a method of song recommendation through technology but also offers insights into our approach. These insights, based on three distinct approaches to data analysis, are accessible in the 'Statistics' section, enhancing user understanding of the underlying processes.
+
 ## Acknowledgments
 
 A group collaboration of:\
