@@ -48,13 +48,13 @@ In preparation for the clusterization of the data, we experimented two approache
 
 ##  Comparable Study Of Different Models
 
-* We conduct three different ways of approach to recommend new tracks given a user input playlist, the following flow charts shows the logic behind it:
+* We conduct three different ways of approach to recommend new tracks given a user input playlist, the following flow chart shows the logic behind it:
 ![model_flow](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/18a7bbe6-a5d4-475f-b972-9595867953e2)
 
 * We build three models to perform the recommendation task:
   * A cosine-similarity model that compare the input playlist vector to all the track vectors;
-  * A track-clustering model that clusters all the tracks, then comparing the input playlist vector, after labeling, to all the same cluster of tracks;
-  * A playlist-clustering model that clusters all the weighted-mean of the playlists audio features, then comparing the input playlist vector, after labeling, to all the same cluster of playlists.
+  * A track-clustering model that clusters all the tracks, then comparing the input playlist vector, after labeling, to all the tracks from the same cluster.
+  * A playlist-clustering model that clusters all the playlists audio features (mean & std dev), then comparing the input playlist vector, after labeling, to all the same cluster of playlists.
 
 ## Model Architecture
 * Model 1: Cosine-Similarity\
