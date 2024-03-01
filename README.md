@@ -106,6 +106,10 @@ Julia Min\
 Minh Le
 
 and special thanks to:\
+Khaled Karman\
+Jin Park\
+Brian Perry\
+Karen Fisher\
 Lisa\
 Shannon
 
