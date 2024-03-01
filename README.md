@@ -67,7 +67,7 @@ In preparation for the clusterization of the data, we experimented two approache
 ![track_flow](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/d8f201f7-8735-4e49-965a-8bc83e6d0f94)
 
 
-* Model 4: Playlist-Clustering\
+* Model 3: Playlist-Clustering\
   In recommendation systems, clustering algorithms can be used to group similar users together based on their preferences and behaviors. We assume that the creation of a playlist implies the user’s song preferences and grouping behavior. By grouping similar playlists together and assigning the input playlist to a cluster, we recommend songs from other similar playlists from the same cluster to the user.
 ![playlist_flow](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/f6a33a97-9db3-4d98-b99d-5387a4f30511)
 
@@ -77,8 +77,8 @@ Please refer to 'Data Pipe' in previous section.
 ## Visualization
 * Track clustering with 17 clusters\
   By running the 'Elbow Method' and TSNE visualization (see jupyter notebook file for details), we set cluster number for tracks equals to 17, and the visualiztion is shown below:
-
-
+  
+  ![track_clusters_K17_transparent](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/cd7579da-54f6-46cc-9385-21992c6f5e72)
 
 
 * Playlist clustering with 17 clusters\
