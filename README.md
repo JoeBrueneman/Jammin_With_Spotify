@@ -48,7 +48,7 @@ In preparation for the clusterization of the data, we experimented two approache
 
 ##  Comparable Study Of Different Models
 
-* We conduct four different ways of approach to recommend new tracks given a user input playlist, the following flow charts shows the logic behind it:
+* We conduct three different ways of approach to recommend new tracks given a user input playlist, the following flow charts shows the logic behind it:
 ![model_flow](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/18a7bbe6-a5d4-475f-b972-9595867953e2)
 
 * We build three models to perform the recommendation task:
