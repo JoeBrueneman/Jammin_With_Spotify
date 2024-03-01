@@ -32,14 +32,14 @@ Please refer to 'Data Pipe' in previous section.
 ## Visualization
 * Track clustering with 17 clusters\
   By running the 'Elbow Method' and TSNE visualization (see jupyter notebook file for details), we set cluster number for tracks equals to 17, and the visualiztion is shown below:
-
-
   
+  ![track_clusters_K17_transparent](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/cd7579da-54f6-46cc-9385-21992c6f5e72)
+
 
 * Playlist clustering with 17 clusters\
   By running the 'Elbow Method' and TSNE visualization (see jupyter notebook file for details), we set cluster number playlists equals to 17, and the visualiztion is shown below:
   
-![image](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/bedaf4d4-136b-44a2-a01d-a139cc3cc519)
+  ![image](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/bedaf4d4-136b-44a2-a01d-a139cc3cc519)
 
 
 ## Validation Method
