@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/69fddada70.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="/static/img/logo_transparent-background.png" type="image/croppedlogo">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Jammin' with Spotify </title>
+    <!-- D3 library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand"><img src="/static/img/logo_transparent-background.png" alt="Logo" class="logo"></a>
+            <nav class="nav-menu">
+                <a href="#showcase" class="nav-link">Home</a>
+                <a href="#combined-section" class="nav-link">Things We Do</a>
+                <a href="#how-this-works" class="nav-link">How This Works</a>
+                <a href="#model-section" class="nav-link">Statistics</a>
+                <a href="#features" class="nav-link">Let's Explore!</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Content Sections -->
+    <main>
+    <!-- landing page section starts-->
+        <header class="showcase">
+            <div class="showcase-content">
+                <h1>Jammin' with Spotify</h1>
+                <p>I got jammed in Spotify and now I'm totally dazzled</p>
+                <a href="#search" class="btn btn-xl">Let's Explore!<i class="fas fa-chevron-right btn-icon"></i></a>
+            </div>
+        </header>
+
+    <!-- landing page section ends-->
+
+    <!-- Things We Do section starts-->
+        <section class="combined-section">
+            <div class="text-section">
+                <div class="statistics-section">
+                    <h2>More awesome songs for the playlist</h2>
+                    <p>Curious about how Spotify recommends you new songs?<br>
+                       How could it be done?<br>
+                     
+                    <p class="comment">We created a song recommendation system to show you how it could be done.</p>
+                    </p>
+                </div>
+                <div class="questions-content">
+                    <p class="question"></p>
+                    <p class="question"></p>
+                    <p class="question"></p>
+                    <p class="comment"></p>
+                </div>
+                <div class="image-section">
+                    <img src="/static/img/spotify sound wave.webp" alt="Sound Wave">
+                </div>
+            </div>
+            
+        </section>
+    <!-- Things We Do section ends-->
+
+    <!-- Statistics (Charts) Section to be added here-->
+
+    <!-- Section Container Starts -->
+    <div class="section-container">
+        <!-- How This Works Section -->
+        <section class="how-this-works">
+            <h2>How This Works</h2>
+            <ul>
+                <li><i class="fa-solid fa-laptop-file"></i>Learn 1 million playlists & 2.2 million songs from Spotify</li>
+                <li><i class="fa-brands fa-creative-commons-sampling"></i>Train our model</li>
+                <li><i class="fa-solid fa-robot"></i>Optimize the model</li>
+                <li><i class="fa-solid fa-arrows-left-right-to-line"></i>Analyse your playlist</li>
+                <li><i class="fa-solid fa-music"></i>Predict the next songs on your playlist</li>
+            </ul>
+        </section>
+
+        <!-- Image on the Right -->
+        <div class="image-right">
+            <img src="/static/img/model-section.png" alt="ThingsWeDo">
+        </div>
+    </div>
+    <!-- Section Container Ends -->
+
+    <!-- Statistics Section Starts-->
+    <div class="model-section">
+        <h1>Key insights - Three Different Approaches to Recommend Songs</h1>
+        <div class="tabs">
+            <button class="tab-links" onclick="openTab(event, 'Model1')">IDEA 1</button>
+            <button class="tab-links" onclick="openTab(event, 'Model2')">IDEA 2</button>
+            <button class="tab-links" onclick="openTab(event, 'Model3')">IDEA 3</button>
+        </div>
+
+        <div id="Model1" class="tab-content">
+            <h2>Cosine-Similarity</h2>
+            <div class="content-flex">
+                <div class="content-left">
+                    <p>Is a method used to evaluate similarity of vectors by calculating the cosine of their angles.
+                        In our case, we compare an user's playlist vector to all the song vectors in our database. 
+                        The features we use for formulating the vectors are audio features, such as loudness, energy, acoustics, instrumentalness, liveness, etc.
+                        We rank the similarity values of each track by a descending order and recommend the top ones to the user.</p>
+                </div>
+                <div class="content-right">
+                    <img src="/static/img/cosine_flow.png" alt="Graph for Model 1">
+                </div>
+            </div>
+        </div>
+
+        <div id="Model2" class="tab-content" style="display:none;">
+            <h2>Tracks Clustering</h2>
+            <div class="content-flex">
+                <div class="content-left">
+                    <p>In recommendation systems, clustering algorithms can be used to group similar items together based on their features. 
+                        In content-based filtering for tracks, we implement this method to group similar tracks together. 
+                        We then assign a cluster number to the input playlist by aggregating its features and recommend tracks from the same cluster.
+                    </p>
+                </div>
+                <div class="content-right">
+                    <img src="../static/img/track_clusters_K17_transparent.png" alt="Graph for Model 2">
+                </div>
+            </div>
+        </div>
+
+        <div id="Model3" class="tab-content" style="display:none;">
+            <h2>Playlists Clustering</h2>
+            <div class="content-flex">
+                <div class="content-left">
+                    <p>In recommendation systems, clustering algorithms can be used to group similar users together based on their preferences and behaviors. 
+                        For our model, we surmise that the creation of a playlist implies the user's song preferences and curating choices. 
+                        By grouping similar playlists together and assigning the input playlist to a cluster, we recommend songs from other similar playlists belonging to the same cluster to the user.
+                    </p>
+                </div>
+                <div class="content-right">
+                    <img src="/static/img/playlist_clusters_K17_transparent.png" alt="Graph for Model 3">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Statistics Section Ends-->
+
+    <!-- Steps to Follow Container Starts -->
+    <div class="features">
+        <article>
+            <i class="fa-solid fa-headphones-simple"></i>
+            <div class="inner">
+                <h4>Step 1</h4>
+                <p>Pull up your Spotify Playlist</p>
+            </div>
+        </article>
+        <article>
+            <i class="fa-solid fa-headphones-simple"></i>
+            <div class="inner">
+                <h4>Step 2</h4>
+                <p>Click on the '...' (three dots) next to the heart</p>
+            </div>
+        </article>
+        <article>
+            <i class="fa-solid fa-headphones-simple"></i>
+            <div class="inner">
+                <h4>Step 3</h4>
+                <p>Click on 'Share' and then click on 'Copy link to playlist'</p>
+            </div>
+        </article>
+    </div>
+    <!-- Steps to Follow Container Ends -->
+
+    <!-- Flex Container Starts Here -->
+    <div class="flex-container">
+        <!-- Left Box Content Starts Here -->
+        <div class="left-box">
+            <h2>Paste the link to the playlist box -></h2>
+            <p></p>
+            <img src="../static/img/playlist_uri_screenshot.jpg" alt="screenshot_finding_playlist_uri">
+            
+        </div>
+        <!-- Left Box Content Ends Here -->
+
+        <!-- Let's Get Your Songs section starts-->
+        <section class="search">
+            <h2>Recommend Me Songs</h2>
+            <form method="post" action="/model_recommendation">
+                <label for="track1">Paste Link:</label>
+                <input type="text" id="track1" name="track1" required>
+                <br>
+                <button type="submit">GO!</button>
+            </form>
+            <!-- Conditional Section to display -->
+        </section>
+        <!-- Let's Get Your Songs section ends-->
+    </div>
+    <!-- Flex Container Ends Here -->
+
+    </main>
+
+        <!-- Footer Section -->
+        <footer>
+            <ul class="icons">
+                <li>
+                    <a href="#"><i class="fa-solid fa-asterisk"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs"><i class="fa-brands fa-sourcetree"></i></a>
+                </li>
+                <li>
+                    <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git"><i class="fa-brands fa-github"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.canva.com/design/DAF99Fy3ekI/9b75r8NXRNvxtkiYp56BRg/edit?utm_content=DAF99Fy3ekI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"><i class="fa-regular fa-file-powerpoint"></i></a>
+                </li>
+            </ul>
+            <ul class="menu">
+                <li>
+                    <a href="#">References</a>
+                    <a href="https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs">Data Source</a>
+                    <a href="https://github.com/JoeBrueneman/Jammin_With_Spotify.git">GitHub</a>
+                    <a href="https://www.canva.com/design/DAF99Fy3ekI/9b75r8NXRNvxtkiYp56BRg/edit?utm_content=DAF99Fy3ekI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Presentation PPT</a>
+                </li>
+            </ul>
+            <p>Created by Group1 @UC Berkeley Extension_Fall 2023</p>
+        </footer>
+        <!-- Footer Section ends -->
+
+    <!-- Floating Recommendation Button -->
+    <button id="teamrecommendationBtn" class="floating-btn"><i class="fa-solid fa-people-group"></i></button>
+
+    <!-- Recommendation Popup -->
+    <div id="teamRecommendationPopup" class="recommendation-popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <div class="team-recommendations">
+                <div class="text-center">
+                    <p class="text-lg">Our Recommendations</p>
+                </div>
+                <!-- Team Member's Github Icons-->
+                <div class="member-list">
+                    <div class="member">
+                        <i class="fa-brands fa-github-alt icon-gia"></i><button id="gia" class="btn-list teammate-icon" data-member="gia"><span>GIA</span></button>
+                    </div>
+                    <div class="member">
+                        <i class="fa-brands fa-github-alt icon-julia"></i><button id="julia" class="btn-list teammate-icon" data-member="julia"><span>JULIA</span></button>
+                    </div>
+                    <div class="member">
+                        <i class="fa-brands fa-github-alt icon-christophe"></i><button id="christophe" class="btn-list teammate-icon" data-member="christophe"><span>CHRISTOPHE</span></button>
+                    </div>
+                    <div class="member">
+                        <i class="fa-brands fa-github-alt icon-joe"></i><button id="joe" class="btn-list teammate-icon" data-member="joe"><span>JOE</span></button>
+                    </div>
+                    <div class="member">
+                        <i class="fa-brands fa-github-alt icon-minh"></i><button id="minh" class="btn-list teammate-icon" data-member="minh"><span>MINH</span></button>
+                    </div>
+                </div>
+       
+                <!-- Team Member's Recommendations -->
+                <!--Gia-->
+                <div id="recommendations-gia" class="wrapped-content hidden">
+                    <div class="gia-image-placeholder"></div>
+                    <div class="wrapped-stats">
+                        <div class="wrapped-left-column">
+                            <h3>Top Artists</h3>
+                            <ul>
+                                <li>#1 Taylor Swift</li>
+                                <li>#2 Beyonce</li>
+                                <li>#3 Black Pink</li>
+                                <li>#4 Lauv</li>
+                                <li>#5 NIKI</li>
+                            </ul>
+                        </div>
+                        <div class="wrapped-right-column">
+                            <h3>Top Songs</h3>
+                            <ul>
+                                <li>#1 Out Of The Woods</li>
+                                <li>#2 Pretty Hurts</li>
+                                <li>#3 How You Like That</li>
+                                <li>#4 Love You Like That</li>
+                                <li>#5 La La Lost You</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="wrapped-footer">
+                        <span>Top Genre - Pop & Contemporary R&B</span>
+                    </div>
+                </div>
+                <!--Julia-->
+                <div id="recommendations-julia" class="wrapped-content hidden">
+                    <div class="julia-image-placeholder"></div>
+                    <div class="wrapped-stats">
+                        <div class="wrapped-left-column">
+                            <h3>Top Artists</h3>
+                            <ul>
+                                <li>#1 Avril Lavinge</li>
+                                <li>#2 Evanescence</li>
+                                <li>#3 SZA</li>
+                                <li>#4 Billie Ellish</li>
+                                <li>#5 Beyonce</li>
+                            </ul>
+                        </div>
+                        <div class="wrapped-right-column">
+                            <h3>Top Songs</h3>
+                            <ul>
+                                <li>#1 When You're Gone</li>
+                                <li>#2 Bring Me To Life</li>
+                                <li>#3 Snooze</li>
+                                <li>#4 Ocean Eyes</li>
+                                <li>#5 Irreplaceable</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="wrapped-footer">
+                        <span>Top Genre - Alternative Rock</span>
+                    </div>
+                </div>
+                <!--Christophe-->
+                <div id="recommendations-christophe" class="wrapped-content hidden">
+                    <div class="christophe-image-placeholder"></div>
+                    <div class="wrapped-stats">
+                        <div class="wrapped-left-column">
+                            <h3>Top Artists</h3>
+                            <ul>
+                                <li>#1 Artic Monkeys</li>
+                                <li>#2 The Smashing Pumpkins</li>
+                                <li>#3 Rachid Taha</li>
+                                <li>#4 Elle King</li>
+                                <li>#5 Chris Janson</li>
+                            </ul>
+                        </div>
+                        <div class="wrapped-right-column">
+                            <h3>Top Songs</h3>
+                            <ul>
+                                <li>#1 Do I Wanna Know?</li>
+                                <li>#2 The End Is The Beginning Is The End</li>
+                                <li>#3 Ya Rayah</li>
+                                <li>#4 Ex's & Oh's</li>
+                                <li>#5 Buy Me a Boat</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="wrapped-footer">
+                        <span>Top Genre - Reggaetón</span>
+                    </div>
+                </div>
+                <!--Joe-->
+                <div id="recommendations-joe" class="wrapped-content hidden">
+                    <div class="joe-image-placeholder"></div>
+                    <div class="wrapped-stats">
+                        <div class="wrapped-left-column">
+                            <h3>Top Artists</h3>
+                            <ul>
+                                <li>#1 Linkin Park</li>
+                                <li>#2 Survivor</li>
+                                <li>#3 Eminem</li>
+                                <li>#4 OneRepublic</li>
+                                <li>#5 Bruno Mars</li>
+                            </ul>
+                        </div>
+                        <div class="wrapped-right-column">
+                            <h3>Top Songs</h3>
+                            <ul>
+                                <li>#1 Castle of Glass</li>
+                                <li>#2 Eye of the Tiger</li>
+                                <li>#3 Luminous Emptiness</li>
+                                <li>#4 Rap God</li>
+                                <li>#5 Wellerman</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="wrapped-footer">
+                        <span>Top Genre - Pop/Rock/R&B/Hip-Hop</span>
+                    </div>
+                </div>
+                <!--Minh-->
+                <div id="recommendations-minh" class="wrapped-content hidden">
+                    <div class="minh-image-placeholder"></div>
+                    <div class="wrapped-stats">
+                        <div class="wrapped-left-column">
+                            <h3>Top Artists</h3>
+                            <ul>
+                                <li>#1 Alesso</li>
+                                <li>#2 Martin Garrix</li>
+                                <li>#3 Gryffin</li>
+                                <li>#4 Seven Lions</li>
+                                <li>#5 3lau</li>
+                            </ul>
+                        </div>
+                        <div class="wrapped-right-column">
+                            <h3>Top Songs</h3>
+                            <ul>
+                                <li>#1 Scars</li>
+                                <li>#2 Scared to be Lonely</li>
+                                <li>#3 Nobody Compares to You</li>
+                                <li>#4 Strangers</li>
+                                <li>#5 How you Love Me</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="wrapped-footer">
+                        <span>Top Genre - Electronic Dance Music</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
