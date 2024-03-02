@@ -73,6 +73,7 @@ In preparation for the clusterization of the data, we experimented two approache
 ![playlist cluster](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/6467a5c2-f90e-4393-bd52-edbce47f0aa8)
 
 
+
 ## Training Data
 Please refer to 'Data Pipe' in previous section.
 
@@ -84,9 +85,10 @@ Please refer to 'Data Pipe' in previous section.
 
 
 * Playlist clustering with 17 clusters\
-  By running the 'Elbow Method' and TSNE visualization (see jupyter notebook file for details), we set cluster number playlists equals to 17, and the visualization is shown below:
-  
-![image](https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/141379548/bedaf4d4-136b-44a2-a01d-a139cc3cc519)
+  By running the 'Elbow Method' and TSNE visualization (see jupyter notebook file for details), we set cluster number playlists equals to 17, and the visualization is shown below:<br><br>
+  <img src="https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/154548045/07c850c9-78b5-45b5-9eb8-08de1a2ed977" alt="Playlist clustering" width="682"> <br><br>)
+
+
 
 
 ## Validation Method
