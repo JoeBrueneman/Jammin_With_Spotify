@@ -92,6 +92,7 @@ Please refer to 'Data Pipe' in previous section.
 ## Validation Method
 
 We take a playlist dataset as test sample and split it into train (80%) and test (20%) datasets, named 'feed' and 'validate'. We generate a 'predict' dataset by using the 'feed' dataset with the three models above. Then we compare the similarity of the 'predict' dataset to 'validate' dataset and calculate the accuracy. <br><br>
+Below is an example of the output when using the playlist-clustering model approach:<br>
 
 <img src="https://github.com/JoeBrueneman/Jammin_With_Spotify/assets/154548045/b2198171-927b-43b7-bf8b-be8655517988" alt="Recommendation results" width="500"> <br><br>
 <br>
